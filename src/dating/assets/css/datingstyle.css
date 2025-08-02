@@ -1,0 +1,286 @@
+/* .svg-top1 svg{
+    width: 100%;
+  height: 600%;
+  flex-shrink: 0;
+  fill: #D6B6F9;
+   }
+   .main-bottom1{
+    width: 100%;
+  height: 180.548px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #FFF;
+   }
+   .cancel-msg-btn{
+    margin-left: 20px;
+    width: 439px;
+  height: 50px;
+  flex-shrink: 0;
+    border-radius: 30px;
+  background: #E654A0;
+  box-shadow: 0px 4px 4px 0px rgba(237, 88, 141, 0.25);
+   }
+   .schedule-date1{
+    margin-left: 20px;
+    width: 439px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  border: 1px solid #E654A0;
+  box-shadow: 0px 4px 4px 0px rgba(237, 88, 141, 0.25);
+   }
+   .upper-Data{
+    position: absolute;
+    top:67px;
+    left: 90px;
+     z-index: 999;
+    text-align: center;
+   }
+  
+   .content{
+    padding: 13px;
+  text-align: center;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+   }
+  
+   .celender svg {
+    width: 40px;
+    height: 32px;
+    fill: #D6B6F9 }
+   .schedulename{
+    align-content: space-around;
+    margin-left: 5px;
+    display:inline;
+    float:center;
+    color: #E654A0;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+   }
+   .h3{
+    color: #FFF;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+   }
+  
+  
+   .relative{
+    position: relative;
+    top:0px;
+    left: 126px;
+    z-index: 999;
+   }
+   
+   .nametag{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+   }
+   .tag1{
+    color: #FFF;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; 
+   }
+   .location svg{
+    left:30px;
+    width: 12.836px;
+    height: 23.437px;
+    flex-shrink: 0;
+    fill: #FFF;
+   }
+   .location2 svg  {
+    width: 12.836px;
+    height: 23.437px;
+    flex-shrink: 0;
+    fill: #FFF;
+   }
+   .city{
+    margin-top: -70px;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; 
+   }
+  
+   .coll{
+    margin-left: -100px;
+    margin-top: 0px;
+    
+   }
+   .img1{
+    margin-top: -140px;
+    margin-right: -30px;
+    float: right;
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+  border-radius: 60px;
+ 
+   }
+   .imgg11{
+    margin-top: -220px;
+    margin-right: -40px;
+    float: right;
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+  border-radius: 60px;
+  
+   }
+  
+   .girl img{
+    height: 130px;
+   }
+  
+   .col6 svg{
+    margin: 20px;
+    margin-left: 35px;
+    width: 33.04px;
+  height: 31.688px;
+  flex-shrink: 0;
+  fill: #FFF;
+   }
+  
+   
+   .rt2{
+    margin-left: 100px;
+    margin-top: -15px;
+    
+   }
+  .img2{
+    margin-top: -80px;
+    margin-left: -370px;
+    float: left;
+  width: 130px;
+  height: 140px;
+  flex-shrink: 0;
+  border-radius: 65px;
+  }
+  .coll1{
+    margin-top: 80px;
+    margin-right: -150px;
+    float: right;
+  width: 150px;
+  height: 130px;
+  flex-shrink: 0;
+  }
+  
+  .date-content{
+    padding: 13px;
+    text-align: center;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .date-btn{
+    width: 282px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 35.281px;
+  background: #E654A0;
+  box-shadow: 0px 4.704px 4.704px 0px rgba(237, 88, 141, 0.25);
+  }
+  .Data-1 h5{
+    margin-left:90px;
+    width: 297px;
+    color: #353535;
+  text-align: center;
+  font-family: Inter;
+  font-size: 21.169px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32.4px; 
+  }
+  .span svg{
+    width: 16.464px;
+  height: 16.464px;
+  flex-shrink: 0;
+  }
+  
+  input time{
+    position:relative;
+  }
+  input span{
+    position:absolute;
+    float:right;
+    top:-15px;
+  }
+  
+  
+  .setdate{
+    position: relative;
+    margin-left: 75px;
+  }
+  .clock-icon{
+    position: absolute;
+    top: 50%;
+    right: 80px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  .calander-icon{
+    position: absolute;
+        top: 50%;
+        right: 80px;
+        transform: translateY(-50%);
+        cursor: pointer;
+  }
+  .settime{
+    position: relative;
+    margin-left: 75px;
+  }
+  .date{
+    margin: 15px;
+    display: flex;
+  width: 312px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 157px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0px 10px 35px 0px rgba(203, 203, 203, 0.48);
+  }
+  
+  .btn{
+    margin: 25px
+  }
+
+
+   .calenderArea{
+    width: auto;
+    height: 100% auto;
+    margin: 10px auto;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    font-stretch: narrower;
+    text-justify: unset;
+  }
+  .clockArea{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  } */

@@ -1,0 +1,644 @@
+.cursor {
+  cursor: pointer;
+}
+.whomeProfile-div-card {
+  box-sizing: border-box;
+  width: 190px;
+  height: 230px;
+  background: #fff;
+  border: 1px solid white;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.22);
+  /* backdrop-filter: blur(6px); */
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+}
+
+.whomeProfile-div-card:hover {
+  border: 1px solid #dc3545;
+  transform: scale(1.05);
+}
+
+.whomeProfile-div-card:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+
+.whomeProfile-div {
+  box-sizing: border-box;
+  width: 170px;
+  height: 170px;
+  background: #fff;
+  border: 1px solid white;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.22);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-user-select: none;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+}
+
+.swipeable-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.swipeable-card {
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.swipeable-card.active {
+  transform: translateX(0%) rotate(0deg) scale(1.05);
+  transition: transform 3s ease-in-out;
+}
+
+.swipeable-card.active-left {
+  transform: translateX(-100%) rotate(-15deg) scale(1);
+  transition: transform 3s ease-in-out;
+}
+
+.swipeable-card.active-right {
+  transform: translateX(100%) rotate(15deg) scale(1);
+  transition: transform 3s ease-in-out;
+}
+
+.shadow {
+  background-color: #f5f5f5;
+  &.top {
+    box-shadow: 0px -15px 10px -15px gray;
+  }
+  &.bottom {
+    box-shadow: 0px 15px 10px -15px gray;
+  }
+  &.left {
+    box-shadow: -15px 0px 10px -15px gray;
+  }
+  &.right {
+    box-shadow: 15px 0px 10px -15px gray;
+  }
+}
+
+.log-regs .log-reg-inner .main-content .form-group .my-form-control {
+  background-color: #eaf2fc;
+  border: 1px solid #3b368c1a;
+  height: 50px;
+  padding: 0 30px;
+}
+
+/* ---------astro css start----------- */
+.member-atsro-main {
+  position: relative;
+}
+.member-atsro {
+  background-color: rgba(0, 0, 0, 0.541);
+  border-radius: 39px;
+  cursor: pointer;
+  height: 25px;
+  position: absolute;
+  left: 10px;
+  top: 20px;
+  width: 65px;
+}
+.member-atsro-imgs {
+  width: 15px !important;
+  height: 15px;
+  margin-left: 7px;
+}
+.member-atsro-main {
+  height: 100%;
+}
+.member-atsro-main img {
+  height: 100%;
+  object-fit: cover;
+}
+.member--style3 .member__inner {
+  height: 450px;
+}
+.its_a_match {
+  gap: 20px;
+  position: relative;
+}
+.its_a_match img {
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.pink_circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background: #f24570;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pink_circle p {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 0;
+}
+.overall_score h3 {
+  font-family: Inter;
+  font-size: 46.87px;
+  font-weight: 700;
+  line-height: 44.62px;
+  text-align: left;
+  color: #e654a0;
+  margin-bottom: 20px;
+}
+.overall_score h3 span {
+  font-family: Inter;
+  font-size: 36.35px;
+  font-weight: 600;
+  line-height: 30.68px;
+  text-align: left;
+}
+.horoscope_score_info h1 {
+  margin-bottom: 10px;
+}
+.prediction_edit {
+  margin-bottom: 30px;
+}
+.prediction_edit a {
+  cursor: pointer;
+}
+.time_place_rashi .box_wrap {
+  border: 1px solid #0000001a;
+  background: #f1f1f1;
+  border-radius: 10px;
+  padding: 14px 10px;
+  width: 32%;
+  gap: 20px;
+}
+.time_place_rashi .box_wrap p {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 14.52px;
+  text-align: left;
+  color: #707070b2;
+}
+.time_place_rashi .box_wrap span {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 16.94px;
+  text-align: left;
+  color: #070707;
+}
+.horoscope_score_wrap {
+  margin-bottom: 60px;
+}
+.Astro_Compatibility_container {
+  flex-wrap: wrap;
+}
+.Astro_Compatibility_wrap {
+  margin-bottom: 60px;
+}
+.Astro_Compatibility_box {
+  margin: auto;
+}
+.Astro_Compatibility_box_inner_img {
+  border-radius: 100%;
+  padding: 30px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Astro_Compatibility_box p {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 14.52px;
+  text-align: center;
+  color: #707070b2;
+  margin: 20px 0;
+}
+.Astro_Compatibility_box span {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 16.94px;
+  text-align: center;
+  color: #070707;
+}
+.date_time_place_inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.john_profile_preview {
+  margin-bottom: 30px;
+}
+.john_profile_preview img {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+.john_bith_chart {
+  margin-bottom: 100px;
+}
+.john_profile_preview p {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 19px;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+.date_time_place_inner {
+  margin-bottom: 30px;
+}
+.date_time_place_inner label {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 14.52px;
+  text-align: left;
+  color: #707070b2;
+}
+.date_time_place_inner label i {
+  color: #ffbb37;
+}
+.date_time_place_inner p {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16.94px;
+  text-align: left;
+  margin-bottom: 0;
+}
+/* ----------astromodal---------- */
+.modal-left-fade {
+  border-radius: 0px !important;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.9rem;
+}
+
+/* CSS FOR NEWS PAGE */
+
+/* Container styles */
+.container {
+  padding: 20px;
+}
+
+.news_main_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* News card styles */
+.news-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.news-card-title {
+  font-size: 1.5em;
+  margin-bottom: 8px;
+}
+
+.news-card-date {
+  font-size: 0.875em;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.news-card-description {
+  font-size: 1em;
+  color: #333;
+}
+.news_main_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wd_search_form {
+  margin-bottom: 2rem;
+}
+
+/* Additional styling for NewsCard */
+.news-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* General styling for the form container */
+.search_form_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Basic Search Form */
+.wd_search_form_basic {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.wd_search_basic_fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+select,
+input[type="text"] {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wd_search_button {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #f24570; /* Theme color */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.wd_search_button:hover {
+  background-color: #d02b5b; /* Slightly darker shade for hover effect */
+  transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+.wd_search_advanced_link {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #f24570; /* Theme color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.wd_search_advanced_link:hover {
+  color: #d02b5b; /* Slightly darker shade for hover effect */
+}
+
+/* Advanced Search Form */
+.wd_search_form_advanced {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.wd_form_field {
+  margin-bottom: 20px;
+}
+
+.wd_form_field_label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.wd_form_field_input input[type="text"],
+.wd_form_field_input select {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Adjust width to account for padding and borders */
+}
+
+.wd_form_field_input .wd_checkbox {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.wd_form_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wd_form_buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.wd_form_buttons input[type="submit"] {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #f24570; /* Theme color */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.wd_form_buttons input[type="submit"]:hover {
+  background-color: #d02b5b; /* Slightly darker shade for hover effect */
+  transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+.wd_form_buttons a {
+  color: #f24570; /* Theme color */
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.wd_form_buttons a:hover {
+  color: #d02b5b; /* Slightly darker shade for hover effect */
+}
+.wd_form_field_input {
+  position: relative;
+}
+.wd_wai_dp_button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.news-card:hover {
+  background-color: #f8f8f8; /* Slightly darker background on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: scale(1.03); /* Slightly enlarge the card on hover */
+}
+
+.NoInternet_wrap img {
+  width: 400px;
+  height: 400px;
+}
+
+/* CSS FOR PURCHASE HISTORY */
+
+/* src/components/PurchaseHistory.css */
+.purchase-history {
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.purchase-history h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.purchase-history .summary {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.purchase-history .table-container {
+  overflow-x: auto;
+}
+
+.purchase-history table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.purchase-history th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+.purchase-history th {
+  background: linear-gradient(to right, #f9f9f9, #f4f4f4);
+  color: #555;
+}
+
+.purchase-history td {
+  border-bottom: 1px solid #ddd;
+}
+
+.purchase-history tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.purchase-history .accordion-row {
+  background-color: #f9f9f9;
+}
+
+.purchase-history .accordion-content {
+  padding: 15px;
+}
+
+.purchase-history .status.active {
+  color: #28a745;
+}
+
+.purchase-history .status.completed {
+  color: #007bff;
+}
+
+.purchase-history .status.expired {
+  color: #dc3545;
+}
+
+.purchase-history .actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.purchase-history .btn-primary {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #f24570;
+  transition: background-color 0.3s ease;
+}
+
+.purchase-history .btn-primary:hover {
+  background-color: #d43762; /* Darker shade for hover effect */
+}
+
+.purchase-history .btn-secondary {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #6c757d;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.purchase-history .btn-secondary:hover {
+  background-color: #5a6268;
+}

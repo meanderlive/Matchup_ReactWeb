@@ -1,0 +1,16 @@
+.slick-slide > div {
+  margin: 0 10px;
+}
+.blog__content {
+  min-height: 420px;
+}
+.blog__metapost {
+  height: 50px;
+  display: flex;
+}
+.blog__content p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 6;
+}
