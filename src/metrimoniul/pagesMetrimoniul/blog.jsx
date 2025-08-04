@@ -19,7 +19,7 @@ const BlogContentListOne = [
     imgAlt: "Blog Thumb",
     title:
       "Dating can be an exhilarating journey, filled with excitement, anticipation, and the potential for meaningful connections.",
-    desc: "Navigating the intricate maze of modern metrimonial often feels like an exciting yet daunting journey. At Meander Software Company, we understand the complexities inherent in this quest for connection. That's why we've developed Marier, a comprehensive and thoughtful solution designed to be your steadfast companion in navigating the landscape of relationships and meaningful connections.",
+    desc: "Navigating the intricate maze of modern metrimonial often feels like an exciting yet daunting journey. At Meander Software Company, we understand the complexities inherent in this quest for connection. That's why we've developed Matchup, a comprehensive and thoughtful solution designed to be your steadfast companion in navigating the landscape of relationships and meaningful connections.",
     btnText: "read more",
     pubDate: "10 March 2023",
     pubAuthor: "Ethan Thompson",

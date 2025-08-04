@@ -4,26 +4,30 @@ import toast, { Toaster } from "react-hot-toast";
 
 import logo from "../assets/images/logo/Logo-light-pink.png";
 import { useDispatch, useSelector } from "react-redux";
-import { loginSlice, sendOtpAsync, verifyOtpAsync } from "../dating/store/slice/AuthSlice";
+import {
+  loginSlice,
+  sendOtpAsync,
+  verifyOtpAsync,
+} from "../dating/store/slice/AuthSlice";
 import { useFormik } from "formik";
 import { verifyOTPApi } from "../dating/store/api/AuthAPI";
 import store from "../hooks/useLocalStorage";
 import { getKey } from "../utils";
-const title = "Welcome to marier";
+const title = "Welcome to Matchup";
 const otherTitle = "Sign up with your email";
 
 const LogIn = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
-  const [otp, setOtpvalue] = useState("")
-  const [forgotPassword, setForgotPassword] = useState(false)
-  const [setOtp, setSendotp] = useState(false)
+  const [otp, setOtpvalue] = useState("");
+  const [forgotPassword, setForgotPassword] = useState(false);
+  const [setOtp, setSendotp] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const state = useSelector((state) => state.userCreate)
-  const { token } = state.userOtp
-  console.log(state.loading)
-  const { setData: setLocalStorageData } = store()
+  const state = useSelector((state) => state.userCreate);
+  const { token } = state.userOtp;
+  console.log(state.loading);
+  const { setData: setLocalStorageData } = store();
   //  const initialValues ={
   //   otp:''
   //  }
@@ -58,7 +62,7 @@ const LogIn = () => {
           {
             loading: "Logging in...",
             success: (response) => {
-              console.log(response)
+              console.log(response);
               if (response.payload.isSuccess === true) {
                 navigate(`/${getKey()}`);
                 return response.message;
@@ -71,14 +75,13 @@ const LogIn = () => {
             },
           }
         );
-      } catch (err) {
-      }
+      } catch (err) {}
     }
   };
   // handlehandleForgot
   const handleForgot = () => {
-    setForgotPassword(true)
-  }
+    setForgotPassword(true);
+  };
   // handleSentOtp
   const handleSentOtp = async () => {
     if (!isValidEmailFormat(userEmail)) {
@@ -87,24 +90,21 @@ const LogIn = () => {
       return;
     }
     try {
-
-
       // Dispatch action to send OTP
       const data = await dispatch(sendOtpAsync({ email: userEmail }));
       if (data.meta.requestStatus === "rejected") {
-        toast.error('Enter Valid Email');
-        return
+        toast.error("Enter Valid Email");
+        return;
       }
       setSendotp(true);
       // Display toast message
-      toast.success('OTP sent to your email!');
-
+      toast.success("OTP sent to your email!");
     } catch (error) {
       // Handle error and display toast message
-      toast.error('Failed to send OTP. Please try again.');
+      toast.error("Failed to send OTP. Please try again.");
       console.error(error);
     }
-  }
+  };
   const handleverifyOtp = async () => {
     if (!isValidEmailFormat(userEmail)) {
       // Show toast error if email format is incorrect
@@ -112,21 +112,21 @@ const LogIn = () => {
       return;
     }
     if (!otp) {
-      toast.error('Enter OTP. Please');
-      return
+      toast.error("Enter OTP. Please");
+      return;
     }
-    const aa = await dispatch(verifyOtpAsync({ otp, token: state.userOtp.data.token }))
+    const aa = await dispatch(
+      verifyOtpAsync({ otp, token: state.userOtp.data.token })
+    );
     // const aa=  await verifyOTPApi({otp,token:state.userOtp.data.token})
     if (aa && aa.payload && aa.payload.isSuccess) {
       navigate("/");
-      toast.success('Login Successfully!');
-
+      toast.success("Login Successfully!");
     } else {
       navigate("/login");
-      toast.error('Wrong OTP. Please try again.');
-
+      toast.error("Wrong OTP. Please try again.");
     }
-  }
+  };
 
   return (
     <section className="log-reg">
@@ -165,7 +165,9 @@ const LogIn = () => {
               </div>
               <div className="main-content inloginp">
                 <form onSubmit={handleSubmit} action="#">
-                  <div className={`form-group  ${setOtp ? 'd-none' : 'd-block'}`}>
+                  <div
+                    className={`form-group  ${setOtp ? "d-none" : "d-block"}`}
+                  >
                     <label>Email</label>
                     <input
                       type="email"
@@ -179,7 +181,11 @@ const LogIn = () => {
                       className={`my-form-control  `}
                     />
                   </div>
-                  <div className={`form-group  ${forgotPassword ? 'd-none' : 'd-block'}`}>
+                  <div
+                    className={`form-group  ${
+                      forgotPassword ? "d-none" : "d-block"
+                    }`}
+                  >
                     <label>Password</label>
                     <input
                       type="password"
@@ -193,8 +199,8 @@ const LogIn = () => {
                       className="my-form-control "
                     />
                   </div>
-                  {
-                    setOtp && <div className="form-group">
+                  {setOtp && (
+                    <div className="form-group">
                       <label>OTP</label>
                       <input
                         type="text"
@@ -207,31 +213,57 @@ const LogIn = () => {
                         className="my-form-control"
                       />
                     </div>
-                  }
-                  <p className={`f-pass ${forgotPassword ? 'd-none' : 'd-block'}  `} style={{ cursor: 'pointer' }} onClick={handleForgot}>
+                  )}
+                  <p
+                    className={`f-pass ${
+                      forgotPassword ? "d-none" : "d-block"
+                    }  `}
+                    style={{ cursor: "pointer" }}
+                    onClick={handleForgot}
+                  >
                     Forgot your password?
                     {/* <a href="#">recover password</a> */}
                   </p>
                   {forgotPassword ? (
                     <>
                       <button
-                        className={`default-btn ${setOtp ? 'd-none' : 'd-block'}`}
+                        className={`default-btn ${
+                          setOtp ? "d-none" : "d-block"
+                        }`}
                         onClick={handleSentOtp}
                       >
                         <span>Send OTP</span>
                       </button>
-                      {setOtp &&
-                        <span style={{ display: 'flex' }}>Didn't get the code? <p className={`f-pass ${setOtp ? 'd-block' : 'd-none'}'}  `} style={{ cursor: 'pointer', color: '#00afff' }} onClick={handleSentOtp}> Resend Otp </p></span>
-                      }
+                      {setOtp && (
+                        <span style={{ display: "flex" }}>
+                          Didn't get the code?{" "}
+                          <p
+                            className={`f-pass ${
+                              setOtp ? "d-block" : "d-none"
+                            }'}  `}
+                            style={{ cursor: "pointer", color: "#00afff" }}
+                            onClick={handleSentOtp}
+                          >
+                            {" "}
+                            Resend Otp{" "}
+                          </p>
+                        </span>
+                      )}
                       <button
-                        className={`default-btn ${setOtp ? 'd-block' : 'd-none'}`}
+                        className={`default-btn ${
+                          setOtp ? "d-block" : "d-none"
+                        }`}
                         onClick={handleverifyOtp}
                       >
                         <span>Login</span>
                       </button>
                     </>
                   ) : (
-                    <button type="submit" className="default-btn" onClick={handleSubmit}>
+                    <button
+                      type="submit"
+                      className="default-btn"
+                      onClick={handleSubmit}
+                    >
                       <span>Sign In</span>
                     </button>
                   )}

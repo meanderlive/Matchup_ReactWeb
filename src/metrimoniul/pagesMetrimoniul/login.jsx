@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
-
+import toast, { Toaster } from "react-hot-toast";
 
 import logo from "../assets/images/logo/Logo-light-pink.png";
 
-const title = "Welcome to marier";
+const title = "Welcome to Matchup";
 const otherTitle = "Sign up with your email";
 
 const LogIn = () => {
-  const [userEmail, setUserEmail] = useState("marier@gmail.com");
+  const [userEmail, setUserEmail] = useState("Matchup@gmail.com");
   const [userPass, setUserPass] = useState("");
 
   const navigate = useNavigate();
@@ -20,51 +19,47 @@ const LogIn = () => {
     const loginAsync = async () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (userEmail === "marier@gmail.com" && userPass === "123456") {
+          if (userEmail === "Matchup@gmail.com" && userPass === "123456") {
             resolve("Login successful");
           } else {
             reject("Incorrect username or password");
           }
-        }, 500); 
+        }, 500);
       });
     };
-  
+
     try {
-      const result = await toast.promise(
-        loginAsync(),
-        {
-          loading: 'Logging in...',
-          success: (message) => {
-            localStorage.setItem("username" , userEmail)
-            navigate("/");
-            return message;
-          },
-          error: (error) => {
-            return error;
-          },
-        }
-      );
+      const result = await toast.promise(loginAsync(), {
+        loading: "Logging in...",
+        success: (message) => {
+          localStorage.setItem("username", userEmail);
+          navigate("/");
+          return message;
+        },
+        error: (error) => {
+          return error;
+        },
+      });
     } catch (error) {
       console.error(error);
     }
   };
-  
+
   return (
     <section className="log-reg">
-
       <div className="top-menu-area">
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-7">
               <div className="logo">
                 <Link to="/">
-                  <img 
-                  src={logo} 
-                  alt="logo"
-                  style={{
-                    height: '35px',
-                    width: '100px'
-                  }}
+                  <img
+                    src={logo}
+                    alt="logo"
+                    style={{
+                      height: "35px",
+                      width: "100px",
+                    }}
                   />
                 </Link>
               </div>

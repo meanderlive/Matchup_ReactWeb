@@ -7,7 +7,7 @@ import authimg2 from "../../assets/images/story/author/02.jpg";
 import img3 from "../../assets/images/story/03.jpg";
 import authimg3 from "../../assets/images/story/author/03.jpg";
 
-const title = "marier Success Stories";
+const title = "Matchup Success Stories";
 const desc =
   "Listen and learn from our community members and find out tips and tricks to meet your love. Join us and be part of a bigger family.";
 
@@ -16,7 +16,7 @@ let StorySectionContentList = [
     imgUrl: img1,
     imgAlt: "Dating Thumb",
     title:
-      "Marier brought us together through our shared love for hiking! The platform's smart matching connected us instantly. Now, from conquering trails to conquering life together, Marier truly fosters genuine connections.",
+      "Matchup brought us together through our shared love for hiking! The platform's smart matching connected us instantly. Now, from conquering trails to conquering life together, Matchup truly fosters genuine connections.",
     activity: "Entertainment",
     authorImg: authimg1,
     authorImgAlt: "Dating Thumb",
@@ -27,7 +27,7 @@ let StorySectionContentList = [
     imgUrl: img2,
     imgAlt: "Dating Thumb",
     title:
-      "Thanks to Marier's compatibility algorithm, we found each other. From our first coffee to exploring art and travel, Marier sparked a connection that's now painting our life's canvas with beautiful shared moments.",
+      "Thanks to Matchup's compatibility algorithm, we found each other. From our first coffee to exploring art and travel, Matchup sparked a connection that's now painting our life's canvas with beautiful shared moments.",
     activity: "Attraction",
     authorImg: authimg2,
     authorImgAlt: "Dating Thumb",
@@ -38,7 +38,7 @@ let StorySectionContentList = [
     imgUrl: img3,
     imgAlt: "Dating Thumb",
     title:
-      "Marier initiated our story with a simple 'hello'. As we bonded over volunteering, our relationship grew stronger. Thanks to Marier, we found not just love but also a shared purpose in making a difference.   ",
+      "Matchup initiated our story with a simple 'hello'. As we bonded over volunteering, our relationship grew stronger. Thanks to Matchup, we found not just love but also a shared purpose in making a difference.   ",
     activity: "Love Stories",
     authorImg: authimg3,
     authorImgAlt: "Dating Thumb",

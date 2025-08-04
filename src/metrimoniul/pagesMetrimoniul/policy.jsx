@@ -5,25 +5,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllPrivacyPolicy } from "../../dating/store/slice/commonSlice";
 
 const PrivacyPolicy = () => {
-
   const datingId = localStorage.getItem("userData");
   const userData = JSON.parse(datingId);
-  const modeId =userData ?  userData?.data?.data?.mode : "65943637acc570d6b14edf38"
+  const modeId = userData
+    ? userData?.data?.data?.mode
+    : "65943637acc570d6b14edf38";
   const dispatch = useDispatch();
-  const getPrivacyPolicy = useSelector((state) => state.termAndConditionSlice?.PrivacyPolicy?.data);
- 
+  const getPrivacyPolicy = useSelector(
+    (state) => state.termAndConditionSlice?.PrivacyPolicy?.data
+  );
 
- const policyData = getPrivacyPolicy ? getPrivacyPolicy[0]?.description : 'asdfg'
+  const policyData = getPrivacyPolicy
+    ? getPrivacyPolicy[0]?.description
+    : "asdfg";
 
-
-const getTandCondition = useCallback(() => {
-  dispatch(getAllPrivacyPolicy(modeId));
-},[dispatch, modeId])
+  const getTandCondition = useCallback(() => {
+    dispatch(getAllPrivacyPolicy(modeId));
+  }, [dispatch, modeId]);
 
   useEffect(() => {
     getTandCondition();
   }, [getTandCondition]);
-
 
   return (
     <>
@@ -40,11 +42,12 @@ const getTandCondition = useCallback(() => {
             </div>
             <div className="terms-text">
               <p className="mb-4">
-                Welcome to Marier, a metrimonial app connecting individuals looking
-                for meaningful relationships. Before using our services, please
-                carefully read and agree to the following Privacy And Policy.
+                Welcome to Matchup, a metrimonial app connecting individuals
+                looking for meaningful relationships. Before using our services,
+                please carefully read and agree to the following Privacy And
+                Policy.
               </p>
-             <div dangerouslySetInnerHTML={{__html: policyData }}></div>
+              <div dangerouslySetInnerHTML={{ __html: policyData }}></div>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import img1 from "../../assets/images/app/01.jpg";
 import img2 from "../../assets/images/app/02.jpg";
 
 const subtitle = "Effortless Connections for All";
-const title = "Get Your Marier App Now!";
+const title = "Get Your Matchup App Now!";
 const desc =
   "You've discovered us, and love is already in the air. Over 5,000,000 individuals worldwide have embraced this same journey, experiencing the magic of our platform. Joining us today has never been simpler!";
 

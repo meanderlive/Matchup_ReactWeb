@@ -1,11 +1,9 @@
 import { Component } from "react";
 
-import work05 from '../../assets/images/work/05.png'
-import work06 from '../../assets/images/work/06.png'
-import work07 from '../../assets/images/work/07.png'
-import work08 from '../../assets/images/work/08.png'
-
-
+import work05 from "../../assets/images/work/05.png";
+import work06 from "../../assets/images/work/06.png";
+import work07 from "../../assets/images/work/07.png";
+import work08 from "../../assets/images/work/08.png";
 
 const title = "How Does it Work";
 
@@ -14,7 +12,7 @@ let WorkSectionContentListOne = [
     imgUrl: work05,
     imgAlt: "Dating Thumb",
     title: "Search Your Partner",
-    desc: "The simple steps to follow to have great experience using marier. all you have to do is follows your gut and awesome your heart!",
+    desc: "The simple steps to follow to have great experience using Matchup. all you have to do is follows your gut and awesome your heart!",
   },
 ];
 let WorkSectionContentListTwo = [
@@ -22,7 +20,7 @@ let WorkSectionContentListTwo = [
     imgUrl: work06,
     imgAlt: "Dating Thumb",
     title: "100% Match People",
-    desc: "The simple steps to follow to have great experience using marier. all you have to do is follows your gut and awesome your heart!",
+    desc: "The simple steps to follow to have great experience using Matchup. all you have to do is follows your gut and awesome your heart!",
   },
 ];
 let WorkSectionContentListThree = [
@@ -30,7 +28,7 @@ let WorkSectionContentListThree = [
     imgUrl: work07,
     imgAlt: "Dating Thumb",
     title: "Find Out Partner",
-    desc: "The simple steps to follow to have great experience using marier. all you have to do is follows your gut and awesome your heart!",
+    desc: "The simple steps to follow to have great experience using Matchup. all you have to do is follows your gut and awesome your heart!",
   },
 ];
 let WorkSectionContentListFour = [
@@ -38,7 +36,7 @@ let WorkSectionContentListFour = [
     imgUrl: work08,
     imgAlt: "Dating Thumb",
     title: "Live The Story",
-    desc: "The simple steps to follow to have great experience using marier. all you have to do is follows your gut and awesome your heart!",
+    desc: "The simple steps to follow to have great experience using Matchup. all you have to do is follows your gut and awesome your heart!",
   },
 ];
 

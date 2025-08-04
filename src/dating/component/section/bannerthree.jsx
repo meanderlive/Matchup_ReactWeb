@@ -7,7 +7,7 @@ const title = (
   </h2>
 );
 const desc =
-  "Still looking for your significant other? marier is the place for you! Join now to meet single men and women worldwide.";
+  "Still looking for your significant other? Matchup is the place for you! Join now to meet single men and women worldwide.";
 const btnText = "Registration Now";
 
 const animateTitle = "Are You Waiting For Dating?";

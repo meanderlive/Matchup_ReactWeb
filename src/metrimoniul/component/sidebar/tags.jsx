@@ -12,7 +12,7 @@ let TagsList = [
     SiteLink: "#",
   },
   {
-    Name: "marier",
+    Name: "Matchup",
     SiteLink: "#",
   },
   {

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
-Template Name: marier
+Template Name: Matchup
 Template URI: codexcoder.com
 Author: codexcoder.com
 Author URI: codexcoder.com
@@ -69,6 +69,7 @@ Tags: 	chat, community, creative, date, dating, matching, membership, modern, ne
 
 html {
   line-height: 1.15;
+  text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
 }
@@ -9694,6 +9695,8 @@ box-shadow: 0px 10px 35px 0px rgba(203, 203, 203, 0.48);
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  -webkit-user-select: none;
   user-select: none;
   font-weight: bolder;
   color: black;

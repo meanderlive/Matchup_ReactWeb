@@ -25,7 +25,7 @@ const AboutPage = () => {
     <Fragment>
       <HeaderFour />
       {/* <PageHeader
-        title={"About Our marier"} curPage={"About Us"}
+        title={"About Our Matchup"} curPage={"About Us"}
       /> */}
       <AboutSectionSix />
       <StorySection />

@@ -38,7 +38,7 @@ const Termsconditions = () => {
             </div>
             <div className="terms-text">
               <p className="mb-4">
-                Welcome to Marier, a dating app connecting individuals looking
+                Welcome to Matchup, a dating app connecting individuals looking
                 for meaningful relationships. Before using our services, please
                 carefully read and agree to the following terms and conditions
               </p>
@@ -46,7 +46,12 @@ const Termsconditions = () => {
                 getTermAndCondition.map((term, index) => (
                   <div key={index}>
                     <p
-                      dangerouslySetInnerHTML={{ __html: term?.description }}
+                      dangerouslySetInnerHTML={{
+                        __html: term?.description?.replace(
+                          /Marier/gi,
+                          "Matchup"
+                        ),
+                      }}
                     ></p>
                   </div>
                 ))

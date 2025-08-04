@@ -1,7 +1,7 @@
 import { Component } from "react";
 
 const subtitle = "Easy Connect To Everyone";
-const title = "Download App Our marier";
+const title = "Download App Our Matchup";
 const desc =
   "You find us, finally and you are already in love. More than 5.000.000 around the world already shared the same experience andng ares uses our system Joining us today just got easier!";
 

@@ -295,7 +295,7 @@ class Footer extends Component {
           <div className="container">
             <div className="footer__content text-center">
               <p className="mb-0">
-                All Rights Reserved &copy; <Link to="/"> marier </Link> ||
+                All Rights Reserved &copy; <Link to="/"> Matchup </Link> ||
                 Design By: CodexCoder
               </p>
             </div>

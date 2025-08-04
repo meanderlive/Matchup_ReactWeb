@@ -5,15 +5,12 @@ import * as Yup from "yup";
 import toast, { Toaster } from "react-hot-toast";
 import HeaderFour from "../component/layout/HeaderFour";
 
-const title = "Welcome to marier";
+const title = "Welcome to Matchup";
 const desc =
   "Let's create your profile! Just fill in the fields below, and we’ll get a new account.";
 const accTitle = "Account Details";
 
 const FamilyDetails = (selectedProfile) => {
-
-
-
   const navigate = useNavigate();
 
   const saveSettings = async (selectedProfile) => {
@@ -23,7 +20,6 @@ const FamilyDetails = (selectedProfile) => {
       }, 2000);
     });
   };
-  
 
   const formik = useFormik({
     initialValues: {
@@ -36,32 +32,30 @@ const FamilyDetails = (selectedProfile) => {
       NoOfMarriedBrother: 0,
       NumberOfSister: 0,
       NoOfMarriedSister: 0,
-      GovtIDProof: ""
+      GovtIDProof: "",
     },
     onSubmit: async (values) => {
       try {
         // Simulate a delay using setTimeout
         await new Promise((resolve) => setTimeout(resolve, 100));
-    
+
         // Use toast.promise correctly
         await toast.promise(
           saveSettings(selectedProfile), // Assuming saveSettings is a function to save family details
           {
-            loading: 'Saving your family details 😍...',
+            loading: "Saving your family details 😍...",
             success: <b>Family details saved! Redirecting...</b>,
             error: <b>Could not save. Please try again.</b>,
           }
         );
-     
-        navigate('/metrimonial/partner-preference');
+
+        navigate("/metrimonial/partner-preference");
         console.log("Form values submitted:", values);
       } catch (error) {
         // Remove the following line to prevent the error toast
         // toast.error("Error submitting Family details. Please try again.");
       }
     },
-    
-    
   });
 
   const handleFileChange = (event) => {
@@ -80,7 +74,9 @@ const FamilyDetails = (selectedProfile) => {
       <div className="container padding-top">
         <div className="row">
           <div>
-            <h2 className="text-center">Some details about your family will improve your profile quality</h2>
+            <h2 className="text-center">
+              Some details about your family will improve your profile quality
+            </h2>
           </div>
         </div>
       </div>
@@ -110,13 +106,15 @@ const FamilyDetails = (selectedProfile) => {
                             {/* Add more DietPreferences options as needed */}
                           </select>
                           {formik.touched.familyStatus &&
-                            formik.errors.familyStatus ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          formik.errors.familyStatus ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.familyStatus}
                             </div>
                           ) : null}
                         </div>
-
 
                         <div className="form-group">
                           <label>Father’s Name*</label>
@@ -129,8 +127,12 @@ const FamilyDetails = (selectedProfile) => {
                             className="my-form-control"
                             placeholder="Enter Father's Name"
                           />
-                          {formik.touched.FathersName && formik.errors.FathersName ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          {formik.touched.FathersName &&
+                          formik.errors.FathersName ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.FathersName}
                             </div>
                           ) : null}
@@ -150,8 +152,12 @@ const FamilyDetails = (selectedProfile) => {
                             <option value="better" label="Better" />
                             <option value="best" label="Best" />
                           </select>
-                          {formik.touched.FathersStatus && formik.errors.FathersStatus ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          {formik.touched.FathersStatus &&
+                          formik.errors.FathersStatus ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.FathersStatus}
                             </div>
                           ) : null}
@@ -168,8 +174,12 @@ const FamilyDetails = (selectedProfile) => {
                             className="my-form-control"
                             placeholder="Enter Mother's Name"
                           />
-                          {formik.touched.MothersName && formik.errors.MothersName ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          {formik.touched.MothersName &&
+                          formik.errors.MothersName ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.MothersName}
                             </div>
                           ) : null}
@@ -189,16 +199,16 @@ const FamilyDetails = (selectedProfile) => {
                             <option value="better" label="Better" />
                             <option value="best" label="Best" />
                           </select>
-                          {formik.touched.MothersStatus && formik.errors.MothersStatus ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          {formik.touched.MothersStatus &&
+                          formik.errors.MothersStatus ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.MothersStatus}
                             </div>
                           ) : null}
                         </div>
-
-
-
-
                       </div>
                     </div>
 
@@ -220,8 +230,8 @@ const FamilyDetails = (selectedProfile) => {
                             <option value="4" label="4" />
                             <option value="5" label="5" />
                           </select>
-                          </div>
-                          <div className="form-group">
+                        </div>
+                        <div className="form-group">
                           <label>of which married*</label>
                           <select
                             name="NoOfMarriedBrother"
@@ -239,8 +249,11 @@ const FamilyDetails = (selectedProfile) => {
                           </select>
 
                           {formik.touched.NumberOfBrother &&
-                            formik.errors.NumberOfBrother ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          formik.errors.NumberOfBrother ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.NumberOfBrother}
                             </div>
                           ) : null}
@@ -263,7 +276,7 @@ const FamilyDetails = (selectedProfile) => {
                             <option value="5" label="5" />
                           </select>
                         </div>
-                          <div className="form-group">
+                        <div className="form-group">
                           <label>of which married*</label>
                           <select
                             name="NoOfMarriedSister"
@@ -281,8 +294,11 @@ const FamilyDetails = (selectedProfile) => {
                           </select>
 
                           {formik.touched.NumberOfSister &&
-                            formik.errors.NumberOfSister ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          formik.errors.NumberOfSister ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.NumberOfSister}
                             </div>
                           ) : null}
@@ -299,21 +315,34 @@ const FamilyDetails = (selectedProfile) => {
                           />
 
                           <div className="doc-upload">
-                          <img
-                            src={formik.values.GovtIDProof ? URL.createObjectURL(formik.values.GovtIDProof) : "https://akm-img-a-in.tosshub.com/sites/btmt/images/stories//June2016/aadhar_061416050825.jpg"}
-                            alt="Selected ID Proof"
-                            style={{ marginTop: "10px", maxWidth: "100%", cursor: "pointer" }}
-                            onClick={handleImageClick}
-                          />
+                            <img
+                              src={
+                                formik.values.GovtIDProof
+                                  ? URL.createObjectURL(
+                                      formik.values.GovtIDProof
+                                    )
+                                  : "https://akm-img-a-in.tosshub.com/sites/btmt/images/stories//June2016/aadhar_061416050825.jpg"
+                              }
+                              alt="Selected ID Proof"
+                              style={{
+                                marginTop: "10px",
+                                maxWidth: "100%",
+                                cursor: "pointer",
+                              }}
+                              onClick={handleImageClick}
+                            />
                           </div>
 
-                          {formik.touched.GovtIDProof && formik.errors.GovtIDProof ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          {formik.touched.GovtIDProof &&
+                          formik.errors.GovtIDProof ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.GovtIDProof}
                             </div>
                           ) : null}
                         </div>
-
                       </div>
                     </div>
                     <button
@@ -329,8 +358,6 @@ const FamilyDetails = (selectedProfile) => {
           </div>
         </div>
       </div>
-     
-
     </section>
   );
 };

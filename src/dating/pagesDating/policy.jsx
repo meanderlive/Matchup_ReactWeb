@@ -5,25 +5,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllPrivacyPolicy } from "../store/slice/commonSlice";
 
 const PrivacyPolicy = () => {
-
   const datingId = localStorage.getItem("userData");
   const userData = JSON.parse(datingId);
-const modeaaaa = '659436bcacc570d6b14edf41'
- 
-  const modeId =userData !== null ?  userData?.data?.data?.mode : modeaaaa
-  const dispatch = useDispatch();
-  const getPrivacyPolicy = useSelector((state) => state.termAndConditionSlice?.PrivacyPolicy?.data);
+  const modeaaaa = "659436bcacc570d6b14edf41";
 
- 
-const getTandCondition = useCallback(() => {
-  dispatch(getAllPrivacyPolicy(modeId));
-},[dispatch, modeId])
+  const modeId = userData !== null ? userData?.data?.data?.mode : modeaaaa;
+  const dispatch = useDispatch();
+  const getPrivacyPolicy = useSelector(
+    (state) => state.termAndConditionSlice?.PrivacyPolicy?.data
+  );
+
+  const getTandCondition = useCallback(() => {
+    dispatch(getAllPrivacyPolicy(modeId));
+  }, [dispatch, modeId]);
 
   useEffect(() => {
     getTandCondition();
   }, [getTandCondition]);
-
- 
 
   return (
     <>
@@ -40,7 +38,7 @@ const getTandCondition = useCallback(() => {
             </div>
             <div className="terms-text">
               <p className="mb-4">
-                Welcome to Marier, a dating app connecting individuals looking
+                Welcome to Matchup, a dating app connecting individuals looking
                 for meaningful relationships. Before using our services, please
                 carefully read and agree to the following Privacy And Policy.
               </p>
@@ -48,7 +46,9 @@ const getTandCondition = useCallback(() => {
                 {getPrivacyPolicy ? (
                   getPrivacyPolicy.map((term, index) => (
                     <li key={index}>
-                      <p dangerouslySetInnerHTML={{__html:term?.description}}></p>
+                      <p
+                        dangerouslySetInnerHTML={{ __html: term?.description }}
+                      ></p>
                     </li>
                   ))
                 ) : (

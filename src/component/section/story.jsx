@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 
-const title = "marier Success Stories";
+const title = "Matchup Success Stories";
 const desc =
   "Listen and learn from our community members and find out tips and tricks to meet your love. Join us and be part of a bigger family.";
 

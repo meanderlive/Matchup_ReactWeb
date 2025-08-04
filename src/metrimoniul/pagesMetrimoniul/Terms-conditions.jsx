@@ -36,10 +36,12 @@ const Termsconditions = () => {
           <section className="terms-section padding-bottom padding-top">
             <div className="container">
               <div className="terms-content">
-              
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: termAndCondition?.data[0]?.description,
+                    __html: termAndCondition?.data[0]?.description?.replace(
+                      /Marier/gi,
+                      "Matchup"
+                    ),
                   }}
                 />
               </div>

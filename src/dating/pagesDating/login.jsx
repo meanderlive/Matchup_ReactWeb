@@ -4,11 +4,11 @@ import toast, { Toaster } from "react-hot-toast";
 
 import logo from "../assets/images/logo/Logo-light-pink.png";
 
-const title = "Welcome to marier";
+const title = "Welcome to Matchup";
 const otherTitle = "Sign up with your email";
 
 const LogIn = () => {
-  const [userEmail, setUserEmail] = useState("marier@gmail.com");
+  const [userEmail, setUserEmail] = useState("Matchup@gmail.com");
   const [userPass, setUserPass] = useState("");
 
   const navigate = useNavigate();
@@ -19,7 +19,10 @@ const LogIn = () => {
     const loginAsync = async () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (userEmail === "marierdating@gmail.com" && userPass === "123456") {
+          if (
+            userEmail === "Matchupdating@gmail.com" &&
+            userPass === "123456"
+          ) {
             resolve("Login successful");
           } else {
             reject("Incorrect username or password");

@@ -2,29 +2,29 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import logo from "../assets/images/logomarier.png";
+import logo from "../assets/images/logoMatchup.png";
 import { useDispatch, useSelector } from "react-redux";
 import { createUserAsync } from "../dating/store/slice/AuthSlice";
 import toast, { Toaster } from "react-hot-toast";
 import WhoseProfileModal from "../metrimoniul/component/popUps/WhoseProfileModal";
 import { MODE_DATING, MODE_METRI } from "../utils";
 
-const title = "Welcome to marier";
+const title = "Welcome to Matchup";
 const desc =
   "Let's create your profile! Just fill in the fields below, and we’ll get a new account.";
 const accTitle = "Account Details";
 
 const SignUp = (selectedProfile) => {
-  const [SelectProfile, setSelectProfile] = useState(false)
-  const [showModeFeilds, setShowModeFeilds] = useState(false)
+  const [SelectProfile, setSelectProfile] = useState(false);
+  const [showModeFeilds, setShowModeFeilds] = useState(false);
   const [step, setStep] = useState(1);
-  const [selectedForWhome, setSelectedForWhome] = useState('')
-  const [modeChange, setModeChange] = useState('dating')
+  const [selectedForWhome, setSelectedForWhome] = useState("");
+  const [modeChange, setModeChange] = useState("dating");
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedMode = localStorage.getItem('signFor');
+    const storedMode = localStorage.getItem("signFor");
 
     if (storedMode) {
       setShowModeFeilds(JSON.parse(storedMode));
@@ -33,13 +33,12 @@ const SignUp = (selectedProfile) => {
 
   const selectMetri = () => {
     setSelectProfile(true);
-    setModeChange('matrimonial')
-  }
-
-  const forWhomeProfile = (selectedProfile) => {
-    setSelectedForWhome(selectedProfile)
+    setModeChange("matrimonial");
   };
 
+  const forWhomeProfile = (selectedProfile) => {
+    setSelectedForWhome(selectedProfile);
+  };
 
   const handleSignUp = async () => {
     try {
@@ -50,8 +49,6 @@ const SignUp = (selectedProfile) => {
     }
   };
 
-
-
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -59,7 +56,6 @@ const SignUp = (selectedProfile) => {
       email: "",
       password: "",
       confirmPassword: "",
-
 
       dob: "",
       iAm: "Male",
@@ -80,15 +76,19 @@ const SignUp = (selectedProfile) => {
       workingExperience: "",
       occupation: "",
       salary: "",
-
     },
     validationSchema: Yup.object().shape({
       mode: Yup.string().required("Please select a mode"),
       name: Yup.string().required("Please enter your full name"),
       dob: Yup.date()
         .required("Please enter your birthday")
-        .max(new Date().getFullYear() - 12, "You must be at least 12 years old"),
-      email: Yup.string().email("Please enter a valid email").required("Email is required"),
+        .max(
+          new Date().getFullYear() - 12,
+          "You must be at least 12 years old"
+        ),
+      email: Yup.string()
+        .email("Please enter a valid email")
+        .required("Email is required"),
       password: Yup.string()
         .min(6, "Password must be at least 6 characters long")
         .required("Password is required"),
@@ -99,10 +99,10 @@ const SignUp = (selectedProfile) => {
     onSubmit: async (values) => {
       const action = await createUserAsync(values);
       const { isSuccess, message, error } = action;
-      if (isSuccess && modeChange === 'datiing') {
+      if (isSuccess && modeChange === "datiing") {
         navigate("/dating/interest");
         toast.success(`Account created successfully: ${message}`);
-      } else if (isSuccess && modeChange === 'matrimonial') {
+      } else if (isSuccess && modeChange === "matrimonial") {
         navigate("/metrimonial/family-details");
         toast.success(`Account created successfully: ${message}`);
       } else {
@@ -121,12 +121,14 @@ const SignUp = (selectedProfile) => {
         formik.values.password &&
         formik.values.confirmPassword
       ) {
-
-        console.log('After storing in local storage:', localStorage.getItem('signFor'));
+        console.log(
+          "After storing in local storage:",
+          localStorage.getItem("signFor")
+        );
 
         setStep((prevStep) => prevStep + 1);
       } else {
-      console.log("fill requiered fields")
+        console.log("fill requiered fields");
       }
     } else {
       setStep((prevStep) => prevStep - 1);
@@ -134,8 +136,8 @@ const SignUp = (selectedProfile) => {
   };
 
   const removeMode = () => {
-    localStorage.removeItem('signFor');
-  }
+    localStorage.removeItem("signFor");
+  };
 
   return (
     <section className="log-reg">
@@ -180,7 +182,9 @@ const SignUp = (selectedProfile) => {
                       <h4 className="content-title">{accTitle}</h4>
                       {/* mode  */}
                       <div className="form-group">
-                        <label>Mode<span>*</span></label>
+                        <label>
+                          Mode<span>*</span>
+                        </label>
                         <div className="banner__inputlist ">
                           <div className="s-input me-3 ">
                             <input
@@ -191,7 +195,7 @@ const SignUp = (selectedProfile) => {
                               value={MODE_DATING}
                               checked={formik.values.mode === MODE_DATING}
                               onChange={formik.handleChange}
-                              onClick={() => setModeChange('dating')}
+                              onClick={() => setModeChange("dating")}
                             />
                             <label className="pointer" htmlFor="dating">
                               Dating
@@ -218,7 +222,9 @@ const SignUp = (selectedProfile) => {
                       {/* name  */}
 
                       <div className="form-group">
-                        <label>Name<span>*</span></label>
+                        <label>
+                          Name<span>*</span>
+                        </label>
                         <input
                           type="text"
                           name="name"
@@ -227,7 +233,6 @@ const SignUp = (selectedProfile) => {
                           onBlur={formik.handleBlur}
                           placeholder="Enter Your Full Name"
                           className="my-form-control"
-
                         />
                         {formik.touched.name && formik.errors.name ? (
                           <div
@@ -242,7 +247,9 @@ const SignUp = (selectedProfile) => {
                       {/* birthday  */}
 
                       <div className="form-group">
-                        <label>Birthday<span>*</span></label>
+                        <label>
+                          Birthday<span>*</span>
+                        </label>
                         <input
                           type="date"
                           name="dob"
@@ -250,7 +257,6 @@ const SignUp = (selectedProfile) => {
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
                           className="my-form-control"
-
                         />
                         {formik.touched.dob && formik.errors.dob ? (
                           <div
@@ -265,7 +271,9 @@ const SignUp = (selectedProfile) => {
                       {/* email  */}
 
                       <div className="form-group">
-                        <label>Email Address<span>*</span></label>
+                        <label>
+                          Email Address<span>*</span>
+                        </label>
                         <input
                           type="email"
                           name="email"
@@ -291,7 +299,9 @@ const SignUp = (selectedProfile) => {
                       {/* password  */}
 
                       <div className="form-group">
-                        <label>Password<span>*</span></label>
+                        <label>
+                          Password<span>*</span>
+                        </label>
                         <input
                           type="password"
                           name="password"
@@ -317,7 +327,9 @@ const SignUp = (selectedProfile) => {
                       {/* consfirm password  */}
 
                       <div className="form-group">
-                        <label>Confirm Password<span>*</span></label>
+                        <label>
+                          Confirm Password<span>*</span>
+                        </label>
                         <input
                           type="password"
                           name="confirmPassword"
@@ -329,7 +341,7 @@ const SignUp = (selectedProfile) => {
                           className="my-form-control"
                         />
                         {formik.touched.confirmPassword &&
-                          formik.errors.confirmPassword ? (
+                        formik.errors.confirmPassword ? (
                           <div
                             className="error-message"
                             style={{ color: "red" }}
@@ -354,7 +366,10 @@ const SignUp = (selectedProfile) => {
                         Profile Details
                         <button
                           className="default-btn reverse"
-                          onClick={() => { handleToggleFormSection(); removeMode() }}
+                          onClick={() => {
+                            handleToggleFormSection();
+                            removeMode();
+                          }}
                           style={{
                             float: "right",
                           }}
@@ -429,7 +444,6 @@ const SignUp = (selectedProfile) => {
                         ) : null}
                       </div>
 
-
                       <div className="form-group">
                         <label>City</label>
                         <input
@@ -451,7 +465,9 @@ const SignUp = (selectedProfile) => {
                       </div>
                       <button
                         className="default-btn reverse"
-                        onClick={() => { handleSignUp() }}
+                        onClick={() => {
+                          handleSignUp();
+                        }}
                       >
                         <span>Create your account</span>
                       </button>
@@ -465,7 +481,9 @@ const SignUp = (selectedProfile) => {
                           Profile Details
                           <button
                             className="default-btn reverse"
-                            onClick={() => { handleToggleFormSection() }}
+                            onClick={() => {
+                              handleToggleFormSection();
+                            }}
                             style={{
                               float: "right",
                             }}
@@ -490,8 +508,11 @@ const SignUp = (selectedProfile) => {
                             {/* Add more DietPreferences options as needed */}
                           </select>
                           {formik.touched.DietPreferences &&
-                            formik.errors.DietPreferences ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          formik.errors.DietPreferences ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.DietPreferences}
                             </div>
                           ) : null}
@@ -512,9 +533,11 @@ const SignUp = (selectedProfile) => {
                             {/* Add more Height options as needed */}
                             <option value="6'0" label="6 feet 0 inches" />
                           </select>
-                          {formik.touched.Height &&
-                            formik.errors.Height ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          {formik.touched.Height && formik.errors.Height ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.Height}
                             </div>
                           ) : null}
@@ -530,14 +553,23 @@ const SignUp = (selectedProfile) => {
                             className="my-form-control"
                           >
                             <option value="" label="Select Marital Status" />
-                            <option value="NeverMarried" label="Never Married" />
-                            <option value="AwaitingDivorce" label="Awaiting Divorce" />
+                            <option
+                              value="NeverMarried"
+                              label="Never Married"
+                            />
+                            <option
+                              value="AwaitingDivorce"
+                              label="Awaiting Divorce"
+                            />
                             <option value="Divorce" label="Divorce" />
                             <option value="Widowed" label="Widowed" />
                           </select>
                           {formik.touched.motherTongue &&
-                            formik.errors.motherTongue ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          formik.errors.motherTongue ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.motherTongue}
                             </div>
                           ) : null}
@@ -552,7 +584,11 @@ const SignUp = (selectedProfile) => {
                             onBlur={formik.handleBlur}
                             className="my-form-control"
                           >
-                            <option value="" label="Select Languages" disabled />
+                            <option
+                              value=""
+                              label="Select Languages"
+                              disabled
+                            />
                             <option value="english" label="English" />
                             <option value="spanish" label="Spanish" />
                             <option value="french" label="French" />
@@ -560,8 +596,11 @@ const SignUp = (selectedProfile) => {
                             <option value="chinese" label="Chinese" />
                           </select>
                           {formik.touched.motherTongue &&
-                            formik.errors.motherTongue ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          formik.errors.motherTongue ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.motherTongue}
                             </div>
                           ) : null}
@@ -584,9 +623,11 @@ const SignUp = (selectedProfile) => {
                             <option value="judaism" label="Judaism" />
                             {/* Add more Religion options as needed */}
                           </select>
-                          {formik.touched.Religion &&
-                            formik.errors.Religion ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          {formik.touched.Religion && formik.errors.Religion ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.Religion}
                             </div>
                           ) : null}
@@ -608,9 +649,11 @@ const SignUp = (selectedProfile) => {
                             <option value="shudra" label="Shudra" />
                             {/* Add more Caste options as needed */}
                           </select>
-                          {formik.touched.Caste &&
-                            formik.errors.Caste ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          {formik.touched.Caste && formik.errors.Caste ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.Caste}
                             </div>
                           ) : null}
@@ -627,7 +670,7 @@ const SignUp = (selectedProfile) => {
                                 formik.handleChange(e);
                                 // Toggle the value when the checkbox is clicked
                                 formik.setFieldValue(
-                                  'casteNoBar',
+                                  "casteNoBar",
                                   !formik.values.casteNoBar
                                 );
                               }}
@@ -635,13 +678,16 @@ const SignUp = (selectedProfile) => {
                               className="float-start"
                             />
                             <span className="checkbox-label">
-                              Caste no bar <br />
-                              I am open to marry people of all castes
+                              Caste no bar <br />I am open to marry people of
+                              all castes
                             </span>
                           </div>
                           {formik.touched.casteNoBar &&
-                            formik.errors.casteNoBar ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          formik.errors.casteNoBar ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.casteNoBar}
                             </div>
                           ) : null}
@@ -656,20 +702,30 @@ const SignUp = (selectedProfile) => {
                             onBlur={formik.handleBlur}
                             className="my-form-control"
                           >
-                            <option value="" label="Select Horoscope" disabled />
+                            <option
+                              value=""
+                              label="Select Horoscope"
+                              disabled
+                            />
                             <option value="must" label="Must" />
-                            <option value="notNecessary" label="Not Necessary" />
+                            <option
+                              value="notNecessary"
+                              label="Not Necessary"
+                            />
                             {/* Add more horoscopes options as needed */}
                           </select>
 
                           {formik.touched.profileDetails?.horoscopes &&
-                            formik.errors.profileDetails?.horoscopes ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          formik.errors.profileDetails?.horoscopes ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.horoscopes}
                             </div>
                           ) : null}
 
-                          {formik.values.horoscopes === 'must' && (
+                          {formik.values.horoscopes === "must" && (
                             <div className="form-group mt-2">
                               <label>Manglik Status*</label>
                               <select
@@ -683,21 +739,27 @@ const SignUp = (selectedProfile) => {
                                 onBlur={formik.handleBlur}
                                 className="my-form-control"
                               >
-                                <option value="" label="Select Manglik Status" disabled />
+                                <option
+                                  value=""
+                                  label="Select Manglik Status"
+                                  disabled
+                                />
                                 <option value="true" label="Manglik" />
                                 <option value="false" label="Not Manglik" />
                                 {/* Add more manglik status options as needed */}
                               </select>
 
                               {formik.touched.profileDetails?.manglikStatus &&
-                                formik.errors.profileDetails?.manglikStatus ? (
-                                <div className="error-message" style={{ color: "red" }}>
+                              formik.errors.profileDetails?.manglikStatus ? (
+                                <div
+                                  className="error-message"
+                                  style={{ color: "red" }}
+                                >
                                   {formik.errors.manglikStatus}
                                 </div>
                               ) : null}
                             </div>
                           )}
-
                         </div>
 
                         <div className="form-group">
@@ -709,16 +771,29 @@ const SignUp = (selectedProfile) => {
                             onBlur={formik.handleBlur}
                             className="my-form-control"
                           >
-                            <option value="" label="Select Higher Education" disabled />
-                            <option value="bachelors" label="Bachelor's Degree" />
+                            <option
+                              value=""
+                              label="Select Higher Education"
+                              disabled
+                            />
+                            <option
+                              value="bachelors"
+                              label="Bachelor's Degree"
+                            />
                             <option value="masters" label="Master's Degree" />
-                            <option value="doctorate" label="Doctorate (Ph.D.)" />
+                            <option
+                              value="doctorate"
+                              label="Doctorate (Ph.D.)"
+                            />
                             <option value="other" label="Other" />
                             {/* Add more higher education options as needed */}
                           </select>
                           {formik.touched.education &&
-                            formik.errors.education ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          formik.errors.education ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.education}
                             </div>
                           ) : null}
@@ -733,17 +808,30 @@ const SignUp = (selectedProfile) => {
                             onBlur={formik.handleBlur}
                             className="my-form-control"
                           >
-                            <option value="" label="Select Work Experience" disabled />
-                            <option value="lessThan1Year" label="Less than 1 year" />
+                            <option
+                              value=""
+                              label="Select Work Experience"
+                              disabled
+                            />
+                            <option
+                              value="lessThan1Year"
+                              label="Less than 1 year"
+                            />
                             <option value="1To3Years" label="1 to 3 years" />
                             <option value="3To5Years" label="3 to 5 years" />
                             <option value="5To10Years" label="5 to 10 years" />
-                            <option value="moreThan10Years" label="More than 10 years" />
+                            <option
+                              value="moreThan10Years"
+                              label="More than 10 years"
+                            />
                             {/* Add more work experience options as needed */}
                           </select>
                           {formik.touched.workingExperience &&
-                            formik.errors.workingExperience ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          formik.errors.workingExperience ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.workingExperience}
                             </div>
                           ) : null}
@@ -758,7 +846,11 @@ const SignUp = (selectedProfile) => {
                             onBlur={formik.handleBlur}
                             className="my-form-control"
                           >
-                            <option value="" label="Select Occupation" disabled />
+                            <option
+                              value=""
+                              label="Select Occupation"
+                              disabled
+                            />
                             <option value="engineer" label="Engineer" />
                             <option value="teacher" label="Teacher" />
                             <option value="doctor" label="Doctor" />
@@ -767,8 +859,11 @@ const SignUp = (selectedProfile) => {
                             {/* Add more occupation options as needed */}
                           </select>
                           {formik.touched.occupation &&
-                            formik.errors.occupation ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          formik.errors.occupation ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.occupation}
                             </div>
                           ) : null}
@@ -785,15 +880,26 @@ const SignUp = (selectedProfile) => {
                           >
                             <option value="" label="Select Income" disabled />
                             <option value="below20k" label="Below $20,000" />
-                            <option value="20kto40k" label="$20,000 - $40,000" />
-                            <option value="40kto60k" label="$40,000 - $60,000" />
-                            <option value="60kto80k" label="$60,000 - $80,000" />
+                            <option
+                              value="20kto40k"
+                              label="$20,000 - $40,000"
+                            />
+                            <option
+                              value="40kto60k"
+                              label="$40,000 - $60,000"
+                            />
+                            <option
+                              value="60kto80k"
+                              label="$60,000 - $80,000"
+                            />
                             <option value="above80k" label="Above $80,000" />
                             {/* Add more salary options as needed */}
                           </select>
-                          {formik.touched.salary &&
-                            formik.errors.salary ? (
-                            <div className="error-message" style={{ color: "red" }}>
+                          {formik.touched.salary && formik.errors.salary ? (
+                            <div
+                              className="error-message"
+                              style={{ color: "red" }}
+                            >
                               {formik.errors.salary}
                             </div>
                           ) : null}
@@ -801,13 +907,15 @@ const SignUp = (selectedProfile) => {
 
                         <button
                           className="default-btn reverse"
-                          onClick={() => { formik.handleSubmit() }}
+                          onClick={() => {
+                            formik.handleSubmit();
+                          }}
                         >
                           <span>Create your account</span>
                         </button>
                       </div>
-                    </div>)}
-
+                    </div>
+                  )}
                 </form>
               </div>
             </div>

@@ -22,10 +22,10 @@ class Safetysecurity extends Component {
               </div>
               <div className="terms-text">
                 <p className="mb-4">
-                  At Marier, we prioritize the safety and security of our users,
-                  creating an environment where everyone can explore connections
-                  with confidence. Our commitment to your well-being is
-                  reflected in the following safety measures:
+                  At Matchup, we prioritize the safety and security of our
+                  users, creating an environment where everyone can explore
+                  connections with confidence. Our commitment to your well-being
+                  is reflected in the following safety measures:
                 </p>
                 <ol>
                   <li>
@@ -40,7 +40,7 @@ class Safetysecurity extends Component {
                   <li>
                     <h5> Privacy Controls</h5>
                     <p>
-                      We understand the importance of privacy. With Marier, you
+                      We understand the importance of privacy. With Matchup, you
                       have control over your personal information. Adjust your
                       privacy settings to share only what you're comfortable
                       with, and our advanced privacy features ensure that your
@@ -89,7 +89,7 @@ class Safetysecurity extends Component {
                       Our community guidelines set clear expectations for
                       behavior within our platform. By adhering to these
                       guidelines, you contribute to the creation of a respectful
-                      and secure dating space for everyone. At Marier, we
+                      and secure dating space for everyone. At Matchup, we
                       believe that building meaningful connections should be an
                       enriching and secure experience. Together, we can create a
                       community that values safety, respect, and genuine

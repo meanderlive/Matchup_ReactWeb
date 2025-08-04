@@ -2,9 +2,9 @@ import { Component } from "react";
 import { Link } from "react-router-dom";
 
 const title = "Welcome aboard!";
-const subtitle = "Marier: Where Emotions Unite, Connections Flouris.";
+const subtitle = "Matchup: Where Emotions Unite, Connections Flouris.";
 const desc =
-  "Discover Marier, your friendly dating tailored for creating vibrant dating communities. Embrace a space designed to kindle emotions, foster connections, and craft the happiest of stories. Welcome to a platform where your unique journey of love and friendship begins!.";
+  "Discover Matchup, your friendly dating tailored for creating vibrant dating communities. Embrace a space designed to kindle emotions, foster connections, and craft the happiest of stories. Welcome to a platform where your unique journey of love and friendship begins!.";
 const btnText = "Get A Membership";
 const imgUrl = "../../assets/images/about/01.png";
 const imgAlt = "Dating Thumb";
@@ -25,7 +25,10 @@ class AboutSectionSix extends Component {
                 <h2>{title}</h2>
                 <h5>{subtitle}</h5>
                 <p>{desc}</p>
-                <Link to="/metrimonial/membership" className="default-btn reverse">
+                <Link
+                  to="/metrimonial/membership"
+                  className="default-btn reverse"
+                >
                   <span>{btnText}</span>
                 </Link>
               </div>

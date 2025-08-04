@@ -123,7 +123,7 @@ let GroupPageContentList = [
   {
     imgUrl: "assets/images/group/04.jpg",
     imgAlt: "Dating Thumb",
-    title: "marier Dating Theme...",
+    title: "Matchup Dating Theme...",
     desc: "You become what you believe. –Oprah Winfrey",
     activety: "2 days ago",
     group: "Public Group",
@@ -455,7 +455,7 @@ class GroupPage extends Component {
     return (
       <Fragment>
         <HeaderTwo />
-        <PageHeader title={"marier All Groups"} curPage={"Groups"} />
+        <PageHeader title={"Matchup All Groups"} curPage={"Groups"} />
         <AboutSectionFour />
         <div className="member story story--style2 padding-top padding-bottom overflow-hidden">
           <div className="container">

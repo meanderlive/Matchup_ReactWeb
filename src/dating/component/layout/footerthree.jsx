@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const newstitle = "Newsletter Sign up";
 const jointitle = "Join Community";
-const aboutTitle = "About marier";
+const aboutTitle = "About Matchup";
 const aboutDesc =
-  "marier is a friendly dating theme based on HTML template for the community functionality";
+  "Matchup is a friendly dating theme based on HTML template for the community functionality";
 const featureTitle = "Featured Members";
 const supportTitle = "Contacts & Support";
 const recentTitle = "Recent Activity";
@@ -298,7 +298,7 @@ class FooterThree extends Component {
           <div className="container">
             <div className="footer__content text-center">
               <p className="mb-0">
-                All Rights Reserved &copy; <Link to="/"> marier </Link> ||
+                All Rights Reserved &copy; <Link to="/"> Matchup </Link> ||
                 Design By: CodexCoder
               </p>
             </div>

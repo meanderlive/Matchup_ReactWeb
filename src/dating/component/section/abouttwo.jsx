@@ -6,7 +6,7 @@ import SelectCountry from "../select/selectcountry";
 import SelectAge from "../select/selectage";
 import SelectGender from "../select/selectgender";
 
-const title = "Welcome To Our marier";
+const title = "Welcome To Our Matchup";
 const desc =
   "You find us, finally, and you are already in love. More than 4.000.000 around the world already shared the same experiences and uses our system. Joining us today just got easier!";
 

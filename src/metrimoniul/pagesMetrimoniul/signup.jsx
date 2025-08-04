@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import SelectMarid from "../component/select/selectmarid";
-import logo from "../assets/images/logomarier.png";
+import logo from "../assets/images/logoMatchup.png";
 
-const title = "Welcome to marier";
+const title = "Welcome to Matchup";
 const desc =
   "Let's create your profile! Just fill in the fields below, and we’ll get a new account.";
 const accTitle = "Account Details";
@@ -14,11 +14,11 @@ const SignUp = () => {
   const [regPassword, setRegPassword] = useState("");
   const [regConPassword, setRegConPassword] = useState("");
   const [showDiv1, setShowDiv1] = useState(true);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleInterestPage = () => {
-    navigate('/interest')
-  }
+    navigate("/interest");
+  };
 
   const toggleDivs = () => {
     setShowDiv1((prevShowDiv1) => !prevShowDiv1);
@@ -177,9 +177,9 @@ const SignUp = () => {
                           placeholder="Enter Your City"
                         />
                       </div>
-                      <button 
-                      className="default-btn reverse"
-                      onClick={handleInterestPage}
+                      <button
+                        className="default-btn reverse"
+                        onClick={handleInterestPage}
                       >
                         <span>Create your account</span>
                       </button>

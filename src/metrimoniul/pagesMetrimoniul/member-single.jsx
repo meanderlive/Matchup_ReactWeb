@@ -164,7 +164,7 @@ let GroupPageContentList = [
   {
     imgUrl: "assets/images/group/04.jpg",
     imgAlt: "Dating Thumb",
-    title: "marier Dating Theme...",
+    title: "Matchup Dating Theme...",
     desc: "You become what you believe. –Oprah Winfrey",
     activety: "2 days ago",
     group: "Public",
@@ -455,7 +455,7 @@ let SiteLinkList = [
   {
     imgUrl: "assets/images/site/01.png",
     imgAlt: "Dating Thumb",
-    title: "marier Dating",
+    title: "Matchup Dating",
     activity: "Active 5 months ago",
     btnText: "Visit Site",
     btnLink: "#",
@@ -463,7 +463,7 @@ let SiteLinkList = [
   {
     imgUrl: "assets/images/site/02.png",
     imgAlt: "Dating Thumb",
-    title: "marier",
+    title: "Matchup",
     activity: "Active 2 months ago",
     btnText: "Visit Site",
     btnLink: "#",
@@ -471,7 +471,7 @@ let SiteLinkList = [
   {
     imgUrl: "assets/images/site/03.png",
     imgAlt: "Dating Thumb",
-    title: "marier Dating",
+    title: "Matchup Dating",
     activity: "Active 5 months ago",
     btnText: "Visit Site",
     btnLink: "#",
@@ -479,7 +479,7 @@ let SiteLinkList = [
   {
     imgUrl: "assets/images/site/04.png",
     imgAlt: "Dating Thumb",
-    title: "marier",
+    title: "Matchup",
     activity: "Active 2 months ago",
     btnText: "Visit Site",
     btnLink: "#",
@@ -487,7 +487,7 @@ let SiteLinkList = [
   {
     imgUrl: "assets/images/site/05.png",
     imgAlt: "Dating Thumb",
-    title: "marier Dating",
+    title: "Matchup Dating",
     activity: "Active 5 months ago",
     btnText: "Visit Site",
     btnLink: "#",

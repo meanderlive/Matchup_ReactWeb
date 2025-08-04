@@ -19,12 +19,12 @@ class Quickstartguide extends Component {
                 <h4> Quick Start Guide</h4>
                 <p>
                   <span className="theme-color fw-bold"></span> Welcome to
-                  Marier!
+                  Matchup!
                 </p>
               </div>
               <div className="terms-text">
                 <p className="mb-4">
-                  Congratulations on joining Marier! We're thrilled to have you
+                  Congratulations on joining Matchup! We're thrilled to have you
                   as a part of our vibrant community where meaningful
                   connections begin. This Quick Start Guide will help you
                   navigate and make the most out of your experience.
