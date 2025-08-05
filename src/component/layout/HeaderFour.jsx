@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Badge } from "react-bootstrap";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import NotificationModal from "../../pages/notification-modal";
-import logo from "../../assets/images/logo/Logo-light-pink.png";
+import logo from "../../assets/images/logo/Matchup-logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getUserProfileAsync,
@@ -53,7 +53,7 @@ const HeaderFour = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userDataObj = JSON.parse(userData);
-  
+
   const userId = userDataObj?.data?._id || null;
   const [forceUpdate, setForceUpdate] = useState(false);
 
@@ -102,8 +102,6 @@ const HeaderFour = () => {
     }
   };
 
-
-  
   useEffect(() => {
     dispatch(getUserProfileAsync(userId));
   }, [dispatch, userId]);
@@ -140,7 +138,7 @@ const HeaderFour = () => {
   };
 
   const Userssss = JSON.parse(userData);
-  
+
   const User = profileData[0] ?? userDataObj?.data;
   const lastimg = User?.avatars.length - 1;
 
@@ -158,8 +156,6 @@ const HeaderFour = () => {
   };
 
   useEffect(() => {}, [getKey]);
-
-  
 
   return (
     <header className="header" id="navbar">
@@ -195,8 +191,9 @@ const HeaderFour = () => {
                 src={logo}
                 alt="logo"
                 style={{
-                  width: "100px",
-                  height: "40px",
+                  width: "135px",
+                  height: "50px",
+                  
                 }}
               />
             </Link>
@@ -262,9 +259,7 @@ const HeaderFour = () => {
                     <img
                       src={
                         User?.avatars[0]
-
-                          ?
-                           `https://datingapi.meander.software/assets/images/${User?.avatars[0]}`
+                          ? `https://datingapi.meander.software/assets/images/${User?.avatars[0]}`
                           : userMale
                       }
                       // ||

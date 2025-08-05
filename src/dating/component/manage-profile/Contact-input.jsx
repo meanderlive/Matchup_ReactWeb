@@ -3,10 +3,7 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { updateUserProfileAsync } from "../../store/slice/profileSlice";
 
-
-
-
-const ManageProfileContactInput = ({ userData, onUpdateProfile , editMode }) => {
+const ManageProfileContactInput = ({ userData, onUpdateProfile, editMode }) => {
   const [userDataEdit, setUserDataEdit] = useState({
     email: userData?.email || "",
     phone: userData?.phoneNumber || "",
@@ -16,9 +13,8 @@ const ManageProfileContactInput = ({ userData, onUpdateProfile , editMode }) => 
   const dispatch = useDispatch();
   const userDatas = localStorage.getItem("userData");
   const userDataObj = JSON.parse(userDatas);
-  
-  const userId = userDataObj?.data?.data?._id || null;
 
+  const userId = userDataObj?.data?.data?._id || null;
 
   useEffect(() => {
     // Update userDataEdit when editMode is true
@@ -49,9 +45,9 @@ const ManageProfileContactInput = ({ userData, onUpdateProfile , editMode }) => 
     e.preventDefault();
     try {
       const updatedUserData = userDataEdit;
-    
+
       await dispatch(updateUserProfileAsync({ updatedUserData, userId }));
-  
+
       onUpdateProfile();
       toast.success("Contact info successfully updated");
       setButtonClass("default-btn reverse");
@@ -90,11 +86,11 @@ const ManageProfileContactInput = ({ userData, onUpdateProfile , editMode }) => 
                         type="text"
                         name="phoneNumber"
                         placeholder="Enter Your PhoneNumber here"
-                        value= {userDataEdit.phoneNumber}
+                        value={userDataEdit.phoneNumber}
                         onChange={handleChange}
                         className="my-form-control"
                       />
-                  </div>
+                    </div>
                     <button
                       type="submit"
                       className={buttonClass}

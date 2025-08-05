@@ -1,34 +1,40 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getUserById, updateUserInterests, updateUserProfile, uploadMultiPicture, uploadProfilePicture } from "../api/profile";
+import {
+  getUserById,
+  updateUserInterests,
+  updateUserProfile,
+  uploadMultiPicture,
+  uploadProfilePicture,
+} from "../api/profile";
 import { getbyiduser } from "../api/AuthAPI";
 
 export const uploadProfilePictureAsync = createAsyncThunk(
-  'user/uploadProfilePicture',
+  "user/uploadProfilePicture",
   async ({ imageData, userId }, thunkAPI) => {
-    console.log("userId slice dp", userId)
+    console.log("userId slice dp", userId);
     try {
       const response = await uploadProfilePicture(imageData, userId);
       return response;
     } catch (error) {
       throw error;
-    } 
+    }
   }
 );
 
 export const uploadMultiPictureAsync = createAsyncThunk(
-  'user/uploadMultiPicture',
+  "user/uploadMultiPicture",
   async ({ imageData, userId }, thunkAPI) => {
     try {
       const response = await uploadMultiPicture(imageData, userId);
       return response;
     } catch (error) {
       throw error;
-    } 
+    }
   }
 );
 
 export const updateInterestsAsync = createAsyncThunk(
-  'profile/updateInterests',
+  "profile/updateInterests",
   async ({ userId, interests }) => {
     try {
       const response = await updateUserInterests(userId, interests);
@@ -40,7 +46,7 @@ export const updateInterestsAsync = createAsyncThunk(
 );
 
 export const getUserProfileAsync = createAsyncThunk(
-  'Users_User/getById',
+  "Users_User/getById",
   async (userId) => {
     try {
       const response = await getbyiduser(userId);
@@ -52,9 +58,9 @@ export const getUserProfileAsync = createAsyncThunk(
 );
 
 export const updateUserProfileAsync = createAsyncThunk(
-  'Users_User/update',
+  "Users_User/update",
   async (Data) => {
-    const { updatedUserData, userId } = Data
+    const { updatedUserData, userId } = Data;
     try {
       const response = await updateUserProfile(updatedUserData, userId);
       return response;
@@ -64,13 +70,8 @@ export const updateUserProfileAsync = createAsyncThunk(
   }
 );
 
-
-
-
-
-
 const profileSlice = createSlice({
-  name: 'profile',
+  name: "profile",
   initialState: {
     interests: [],
     userData: [],
@@ -121,7 +122,7 @@ const profileSlice = createSlice({
       })
       .addCase(getUserProfileAsync.fulfilled, (state, action) => {
         state.loading = false;
-        state.userData = action.payload.data
+        state.userData = action.payload.data;
       })
       .addCase(getUserProfileAsync.rejected, (state, action) => {
         state.loading = false;
@@ -138,7 +139,7 @@ const profileSlice = createSlice({
       .addCase(updateUserProfileAsync.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
-      })
+      });
   },
 });
 

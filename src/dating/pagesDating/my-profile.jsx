@@ -7,7 +7,7 @@ import ActiveMember from "../component/sidebar/member";
 import HeaderFour from "../../component/layout/HeaderFour";
 import FooterFour from "../component/layout/footerFour";
 import InstallApp from "../component/popUps/installApp";
-import userMale from "../assets/images/myCollection/user-male.jpg"
+import userMale from "../assets/images/myCollection/user-male.jpg";
 
 import img1 from "../assets/images/member/profile/01.jpg";
 import img2 from "../assets/images/member/profile/02.jpg";
@@ -36,12 +36,11 @@ import {
 } from "../store/slice/profileSlice";
 import ActivityPage from "../pagesDating/activity";
 import ShareProfile from "../../pages/ShareUserProfileModal";
-import moment from 'moment';
+import moment from "moment";
 import ShowPhotoViewerModal from "../component/popUps/photoAlbum";
 import { getByIdUsersAsync } from "../store/slice/AuthSlice";
 import { USER_ID_LOGGEDIN } from "../../utils";
 const activety = "Online";
-
 
 let MideaAll = [
   {
@@ -89,7 +88,7 @@ let MideaAll = [
     imgUrl: imgfemale5,
     imgAlt: "Dating Thumb",
   },
-]
+];
 
 const MyProfile = () => {
   const uploading = useSelector((state) => state.profile?.uploading);
@@ -101,35 +100,28 @@ const MyProfile = () => {
   const [showPhoto, setShowPhoto] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  
- 
-  const userId = USER_ID_LOGGEDIN; 
-  const UserData = data?.user[0]
+  const userId = USER_ID_LOGGEDIN;
+  const UserData = data?.user[0];
 
-const getUser =JSON.parse( localStorage.getItem("userData"))
-const id = getUser?.data?._id;
-
-
-  
+  const getUser = JSON.parse(localStorage.getItem("userData"));
+  const id = getUser?.data?._id;
 
   const handleImageClickOpenModal = (image) => {
     setSelectedImage(image);
     setShowPhoto(true);
   };
 
-
-
-  const [valuenew, setValueNew] = useState("")
+  const [valuenew, setValueNew] = useState("");
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     dispatch(getUserProfileAsync(userId));
     dispatch(getByIdUsersAsync(id));
   }, [force, dispatch, userId]);
 
-  const User = profileData && profileData[0] === UserData ? profileData[0] : UserData;
-  
+  const User =
+    profileData && profileData[0] === UserData ? profileData[0] : UserData;
+
   const lastimg = User?.avatars.length - 1;
 
   if (!profileData) {
@@ -148,10 +140,7 @@ const id = getUser?.data?._id;
     }
   };
 
-console.log("User==111111==>>>>>",User);
-
-
-
+  console.log("User==111111==>>>>>", User);
 
   const interests = [
     "Traveling",
@@ -161,9 +150,6 @@ console.log("User==111111==>>>>>",User);
     "Music",
     "Photography",
   ];
-
-
-
 
   return (
     <Fragment>
@@ -232,8 +218,7 @@ console.log("User==111111==>>>>>",User);
                       aria-controls="gt5"
                       aria-selected="false"
                     >
-                      <i class="fa-solid fa-share-nodes"></i>{" "}
-                      Share profile{" "}
+                      <i class="fa-solid fa-share-nodes"></i> Share profile{" "}
                     </button>
                   </li>
                 </ul>
@@ -276,9 +261,7 @@ console.log("User==111111==>>>>>",User);
                           </div>
 
                           <div className="info-card-content">
-                            <p>
-                              {User?.description || ""}
-                            </p>
+                            <p>{User?.description || ""}</p>
                           </div>
                         </div>
 
@@ -401,8 +384,6 @@ console.log("User==111111==>>>>>",User);
                             </ul>
                           </div>
                         </div>
-
-
                       </div>
                     </div>
 
@@ -468,7 +449,6 @@ console.log("User==111111==>>>>>",User);
                             </ul>
 
                             <div className="tab-content" id="myTabContent3">
-
                               {/* midea all images show on modal  */}
                               <div
                                 className="tab-pane fade show active"
@@ -494,10 +474,19 @@ console.log("User==111111==>>>>>",User);
                                       hideModal={() => setShowPhoto(false)}
                                       selectedImage={selectedImage}
                                     />
-                                    {MideaAll.map(item => (
-                                      <div className="col" key={item.id} onClick={() => handleImageClickOpenModal(item)}>
+                                    {MideaAll.map((item) => (
+                                      <div
+                                        className="col"
+                                        key={item.id}
+                                        onClick={() =>
+                                          handleImageClickOpenModal(item)
+                                        }
+                                      >
                                         <div className="media-thumb video-thumb pointer">
-                                          <img src={item.imgUrl} alt={item.imgAlt} />
+                                          <img
+                                            src={item.imgUrl}
+                                            alt={item.imgAlt}
+                                          />
                                         </div>
                                       </div>
                                     ))}
@@ -622,11 +611,19 @@ console.log("User==111111==>>>>>",User);
                                     </li>
                                   </ul>
                                   <div className="row row-cols-2 row-cols-sm-3 row-cols-lg-4 row-cols-xl-3 g-3">
-
-                                    {MideaAll.map(item => (
-                                      <div className="col" key={item.id} onClick={() => handleImageClickOpenModal(item)}>
+                                    {MideaAll.map((item) => (
+                                      <div
+                                        className="col"
+                                        key={item.id}
+                                        onClick={() =>
+                                          handleImageClickOpenModal(item)
+                                        }
+                                      >
                                         <div className="media-thumb video-thumb pointer">
-                                          <img src={item.imgUrl} alt={item.imgAlt} />
+                                          <img
+                                            src={item.imgUrl}
+                                            alt={item.imgAlt}
+                                          />
                                         </div>
                                       </div>
                                     ))}
@@ -639,8 +636,6 @@ console.log("User==111111==>>>>>",User);
                                   </div>
                                 </div>
                               </div>
-
-
                             </div>
                           </div>
                         </div>
@@ -660,7 +655,6 @@ console.log("User==111111==>>>>>",User);
                       id="gt5"
                       role="tabpanel"
                       aria-labelledby="gt5-tab"
-
                     >
                       <ShareProfile />
                     </div>
@@ -691,26 +685,26 @@ console.log("User==111111==>>>>>",User);
                             }
                             style={{
                               objectFit: "cover",
-                              height: "279px"
+                              height: "279px",
                             }}
                             alt="dating thumb"
                           />
 
                           {uploading && <p>Uploading...</p>}
-
-
                         </label>
                       </div>
                       <div className="story__content">
                         <h4>{User?.name}</h4>
                         <div className="story__content--content mb-2 pb-3">
                           <p>
-                            <i className="fa-sharp fa-solid fa-circle" size="2xs" style={{ color: "#11e415", }} />
-                            {" "} {activety}
-
+                            <i
+                              className="fa-sharp fa-solid fa-circle"
+                              size="2xs"
+                              style={{ color: "#11e415" }}
+                            />{" "}
+                            {activety}
                             {/* <i className="fa-solid fa-clock"></i> */}
                             {/* <i class=" fa-solid fa-location-dot fa-2xl" style={{margin:"10px",float:"right",fontSize:"x-large",cursor:"pointer"}}/> */}
-
                           </p>
                         </div>
                         <div className="story__content--author pb-2"></div>
@@ -729,10 +723,11 @@ console.log("User==111111==>>>>>",User);
                                 borderRadius: "25px",
                                 cursor: "pointer",
                               }}
-                              className={`interest-item col-auto text-center  interest-item-profile flex-nowrap ${selectedInterests.includes(interest)
-                                ? "selected"
-                                : ""
-                                }`}
+                              className={`interest-item col-auto text-center  interest-item-profile flex-nowrap ${
+                                selectedInterests.includes(interest)
+                                  ? "selected"
+                                  : ""
+                              }`}
                             >
                               {interest}
                             </div>

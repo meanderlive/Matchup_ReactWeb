@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
-import logo from "../assets/images/logo/Logo-light-pink.png";
+import logo from "../assets/images/logo/Matchup-logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
   loginSlice,

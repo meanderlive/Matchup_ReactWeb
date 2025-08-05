@@ -8,6 +8,7 @@ const desc =
 let AppList = [
   {
     imgUrl: "assets/images/app/01.jpg",
+    
     imgAlt: "Dating Thumb",
     siteLink: "#",
   },
@@ -36,9 +37,11 @@ class AppSection extends Component {
                     <p>{desc}</p>
                     <ul>
                       {AppList.map((val, i) => (
+                        
                         <li key={i}>
                           <a href={`${val.siteLink}`}>
-                            <img src={`${val.imgUrl}`} alt={`${val.imgUrl}`} />
+                            <img src={`${val.imgUrl}`} alt={`${val.imgUrl}`}
+                             />
                           </a>
                         </li>
                       ))}

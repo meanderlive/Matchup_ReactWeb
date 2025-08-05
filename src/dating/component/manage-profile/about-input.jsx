@@ -3,10 +3,7 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { updateUserProfileAsync } from "../../store/slice/profileSlice";
 
-
-
-
-const ManageProfileAboutInput = ({ userData, onUpdateProfile , editMode }) => {
+const ManageProfileAboutInput = ({ userData, onUpdateProfile, editMode }) => {
   const [userDataEdit, setUserDataEdit] = useState({
     email: userData?.email || "",
     phone: userData?.phoneNumber || "",
@@ -19,13 +16,11 @@ const ManageProfileAboutInput = ({ userData, onUpdateProfile , editMode }) => {
 
   const userId = userDataObj?.data?.data?._id || null;
 
-
   useEffect(() => {
     // Update userDataEdit when editMode is true
     if (editMode) {
       setUserDataEdit({
         description: userData?.description || "",
-        
       });
     }
   }, [editMode, userData]);
@@ -50,7 +45,7 @@ const ManageProfileAboutInput = ({ userData, onUpdateProfile , editMode }) => {
     try {
       const updatedUserData = userDataEdit;
       await dispatch(updateUserProfileAsync({ updatedUserData, userId }));
-  
+
       onUpdateProfile();
       toast.success("About info successfully updated");
       setButtonClass("default-btn reverse");
@@ -72,18 +67,18 @@ const ManageProfileAboutInput = ({ userData, onUpdateProfile , editMode }) => {
                     <h4 className="content-title manage-profile-input-top-title">
                       About-Info
                     </h4>
-                    
+
                     <div className="form-group">
                       <label>Description*</label>
                       <input
                         type="text"
                         name="description"
                         placeholder="Enter Description"
-                        value= {userDataEdit.description}
+                        value={userDataEdit.description}
                         onChange={handleChange}
                         className="my-form-control"
                       />
-                  </div>
+                    </div>
                     <button
                       type="submit"
                       className={buttonClass}

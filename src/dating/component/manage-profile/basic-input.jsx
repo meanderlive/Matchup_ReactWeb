@@ -2,19 +2,17 @@ import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { updateUserProfileAsync } from "../../store/slice/profileSlice";
-import moment from 'moment';
-
-
+import moment from "moment";
 
 const ManageProfileBasicInput = ({ userData, onUpdateProfile }) => {
   const [userDataEdit, setUserDataEdit] = useState({
     name: userData?.name || "",
-    dob:  moment(userData?.dob).format("YYYY-MM-DD") || '',
+    dob: moment(userData?.dob).format("YYYY-MM-DD") || "",
     iAm: userData?.iAm || "",
     looking: userData?.looking || "",
     marital: userData?.marital || "",
     address: userData?.address || "",
-    interests: userData?.interests ||"",
+    interests: userData?.interests || "",
   });
 
   const [buttonClass, setButtonClass] = useState("default-btn reverse");
@@ -44,7 +42,7 @@ const ManageProfileBasicInput = ({ userData, onUpdateProfile }) => {
     try {
       const updatedUserData = userDataEdit;
       await dispatch(updateUserProfileAsync({ updatedUserData, userId }));
-  
+
       onUpdateProfile();
       toast.success("Basic info successfully updated");
       setButtonClass("default-btn reverse");
@@ -82,7 +80,7 @@ const ManageProfileBasicInput = ({ userData, onUpdateProfile }) => {
                       <input
                         type="date"
                         name="dob"
-                        value= {userDataEdit.dob}
+                        value={userDataEdit.dob}
                         onChange={handleChange}
                         className="my-form-control"
                       />
