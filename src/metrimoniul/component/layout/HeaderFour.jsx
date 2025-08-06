@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Badge } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import NotificationModal from "../../pagesMetrimoniul/notification-modal";
-import logo from "../../assets/images/logo/Logo-light-pink.png";
+import logo from "../../assets/images/logo/image.png";
 import { useDispatch, useSelector } from "react-redux";
 import userMale from "../../../dating/assets/images/myCollection/user-male.jpg";
 import { logout } from "../../../dating/store/slice/AuthSlice";
@@ -123,15 +123,14 @@ const HeaderFour = ({ unreadCount }) => {
   };
 
   const Userssss = JSON.parse(userData);
-   let User;
-if (userProfile?.data) {
-  User = userProfile.data;
-} else {
-  User = profileData?.[0];
-}
+  let User;
+  if (userProfile?.data) {
+    User = userProfile.data;
+  } else {
+    User = profileData?.[0];
+  }
 
   const lastimg = User?.avatars.length - 1;
-  
 
   useEffect(() => {}, [getKey]);
 
@@ -169,8 +168,8 @@ if (userProfile?.data) {
                 src={logo}
                 alt="logo"
                 style={{
-                  width: "100px",
-                  height: "40px",
+                  width: "135px",
+                  height: "50px",
                 }}
               />
             </Link>
