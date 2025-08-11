@@ -9,12 +9,9 @@ import {
   sendOtpAsync,
   verifyOtpAsync,
 } from "../dating/store/slice/AuthSlice";
-import { useFormik } from "formik";
-import { verifyOTPApi } from "../dating/store/api/AuthAPI";
-import store from "../hooks/useLocalStorage";
+
 import { getKey } from "../utils";
 const title = "Welcome to Matchup";
-const otherTitle = "Sign up with your email";
 
 const LogIn = () => {
   const [userEmail, setUserEmail] = useState("");
@@ -25,20 +22,8 @@ const LogIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const state = useSelector((state) => state.userCreate);
-  const { token } = state.userOtp;
   console.log(state.loading);
-  const { setData: setLocalStorageData } = store();
-  //  const initialValues ={
-  //   otp:''
-  //  }
-  //  const formik = useFormik({
-  //   initialValues,
-  //   onSubmit: async (values) => {
-  //     console.log(values)
-  //     setOtpvalue(values)
-  //   },
 
-  //  })
   const isValidEmailFormat = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -120,7 +105,7 @@ const LogIn = () => {
     );
     // const aa=  await verifyOTPApi({otp,token:state.userOtp.data.token})
     if (aa && aa.payload && aa.payload.isSuccess) {
-      navigate("/");
+      navigate(`/${getKey()}`);
       toast.success("Login Successfully!");
     } else {
       navigate("/login");
@@ -221,12 +206,12 @@ const LogIn = () => {
                     style={{ cursor: "pointer" }}
                     onClick={handleForgot}
                   >
-                    Forgot your password?
-                    {/* <a href="#">recover password</a> */}
+                    Login with OTP
                   </p>
                   {forgotPassword ? (
                     <>
                       <button
+                        type="button"
                         className={`default-btn ${
                           setOtp ? "d-none" : "d-block"
                         }`}
@@ -250,6 +235,7 @@ const LogIn = () => {
                         </span>
                       )}
                       <button
+                        type="button"
                         className={`default-btn ${
                           setOtp ? "d-block" : "d-none"
                         }`}
@@ -257,6 +243,13 @@ const LogIn = () => {
                       >
                         <span>Login</span>
                       </button>
+                      <p
+                        className="f-pass"
+                        style={{ cursor: "pointer", marginTop: "10px" }}
+                        onClick={() => setForgotPassword(false)}
+                      >
+                        Use password instead
+                      </p>
                     </>
                   ) : (
                     <button
