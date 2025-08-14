@@ -193,7 +193,6 @@ const HeaderFour = () => {
                 style={{
                   width: "135px",
                   height: "50px",
-                  
                 }}
               />
             </Link>
