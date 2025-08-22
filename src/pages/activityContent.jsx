@@ -113,7 +113,7 @@ const ActivityTimeline = () => {
     // </div>
     <div className="group__bottom--body bg-white">
       <div className="group__bottom--group">
-      <h3>Activity Timeline</h3>
+      <h3>Activity Timelines</h3>
         <div className="activity-cards">
         {activities.map((activity) => (
             <div className="col"key={activity.id}>

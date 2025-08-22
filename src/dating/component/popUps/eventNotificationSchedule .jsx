@@ -137,7 +137,7 @@ const EventNotificationSchedule = ({ showModal, hideModal, calenderScheduleDAte,
                         ? `https://datingapi.meander.software/assets/images/${User?.avatars[0]}`
                         : userMale
                     }
-                    alt="dating thumb"
+                    alt="dating thumbs"
                   />
                 </div>
               </div>

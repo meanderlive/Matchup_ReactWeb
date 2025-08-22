@@ -32,7 +32,7 @@ const PromotionalOffersScreen = () => {
 
   return (
 
-    
+    <>
 
       <div>
         <HeaderFour />
@@ -108,12 +108,15 @@ const PromotionalOffersScreen = () => {
             </label>
           </div>
 
-          <button type="submit" className="btn btn-primary btn-block">
+          <button  type="submit" className="btn btn-primary btn-block">
             Search Profiles
           </button>
         </form>
         </div>
+   
       </div>
+           <FooterFour/>
+           </>
   );
 };
 

@@ -102,7 +102,7 @@ useEffect(() => {
 
   return () => {
     newSocket.disconnect();
-  };
+  };  
 }, []);
 
 
@@ -429,7 +429,7 @@ useEffect(() => {
                   <a
                     href="#!"
                     className="d-flex justify-content-between"
-                  >
+                  > 
                     <div className="d-flex flex-row align-items-center" style={{ gap: '15px' }}>
                       <div style={ {width: '60px', height: '60px'} }>
                         <img

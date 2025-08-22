@@ -119,8 +119,7 @@ const MyProfile = () => {
     dispatch(getByIdUsersAsync(id));
   }, [force, dispatch, userId]);
 
-  const User =
-    profileData && profileData[0] === UserData ? profileData[0] : UserData;
+  const User = profileData?.[0] ?? UserData;
 
   const lastimg = User?.avatars.length - 1;
 
@@ -679,8 +678,10 @@ const MyProfile = () => {
                         >
                           <img
                             src={
-                              User && User?.avatars[0]
-                                ? `https://datingapi.meander.software/assets/images/${User?.avatars[0]}`
+                              User?.mainAvatar
+                                ? `https://datingapi.meander.software/assets/images/${User?.mainAvatar}`
+                                : User?.avatars?.[0]
+                                ? `https://datingapi.meander.software/assets/images/${User?.avatars?.[0]}`
                                 : userMale
                             }
                             style={{

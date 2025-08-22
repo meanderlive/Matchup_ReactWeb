@@ -14,7 +14,7 @@ import userMale from "../../dating/assets/images/myCollection/user-male.jpg";
 
 const showResult = "Showing 01 - 12 of 139 Results";
 
-const Events = (e) => {
+const Events = (e) => { 
   const [memberpopup, setMemberpopup] = useState(false);
  const [editIndex,setEditIndex]=useState(null)
  const [ViewUser, setViewUser] = useState([]);

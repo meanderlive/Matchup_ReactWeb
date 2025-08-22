@@ -43,6 +43,7 @@ let HeaderSocialList = [
 
 const HeaderFour = ({ unreadCount }) => {
   const profileData = useSelector((state) => state.profile.userData);
+  const avatarVersion = useSelector((state) => state.profile.avatarVersion);
   const userProfile = useSelector((state) => state.userCreate.user);
   const [username, setUsername] = useState(localStorage.getItem("userData"));
   const [userData, setUserData] = useState(localStorage.getItem("userData"));
@@ -52,7 +53,7 @@ const HeaderFour = ({ unreadCount }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userDataObj = JSON.parse(userData);
-  const userId = userDataObj?.data?.data?._id || null;
+  const userId = userDataObj?.data?._id || null;
 
   const isSmallScreen = window.innerWidth <= 768 && 992;
   useEffect(() => {
@@ -123,12 +124,9 @@ const HeaderFour = ({ unreadCount }) => {
   };
 
   const Userssss = JSON.parse(userData);
-  let User;
-  if (userProfile?.data) {
-    User = userProfile.data;
-  } else {
-    User = profileData?.[0];
-  }
+  // Prefer the canonical profile slice (kept up-to-date after uploads),
+  // fall back to userCreate slice if profile slice is empty
+  const User = profileData?.[0] ?? userProfile?.data;
 
   const lastimg = User?.avatars.length - 1;
 
@@ -216,7 +214,9 @@ const HeaderFour = ({ unreadCount }) => {
                     <img
                       src={
                         User?.mainAvatar
-                          ? `https://datingapi.meander.software/assets/images/${User?.mainAvatar}`
+                          ? `https://datingapi.meander.software/assets/images/${User?.mainAvatar}?v=${avatarVersion}`
+                          : User?.avatars?.[0]
+                          ? `https://datingapi.meander.software/assets/images/${User?.avatars?.[0]}?v=${avatarVersion}`
                           : userMale
                       }
                       // ||

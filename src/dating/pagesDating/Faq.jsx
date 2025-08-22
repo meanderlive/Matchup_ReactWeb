@@ -5,7 +5,6 @@ import HeaderFour from "../../component/layout/HeaderFour";
 import { MODE_DATING } from "../../utils";
 // import PageHeader from "../component/layout/pageheader";
 
-
 // const modeId = Mode();
 
 const Accordion = ({ title, content, isOpen, toggleAccordion }) => {

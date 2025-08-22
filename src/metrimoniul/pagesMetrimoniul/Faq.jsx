@@ -116,27 +116,24 @@ const FAQ = () => {
   return (
     <>
       <HeaderFour />
-      
-        
-          <section className="pt-60 bg-violet-light">
-            <div className="container" data-aos="slide-up">
-              <h1 className="text-center mb-50">Frequently Asked Questions</h1>
-              <div className="accordions">
-                {faqData.map((faq, index) => (
-                  <Accordion
-                    key={index}
-                    title={faq.question}
-                    content={faq.answer}
-                    isOpen={index === openAccordionIndex}
-                    toggleAccordion={() => toggleAccordion(index)}
-                  />
-                ))}
-              </div>
-            </div>
-          </section>
-          <FooterFour />
-        
-      
+
+      <section className="pt-60 bg-violet-light">
+        <div className="container" data-aos="slide-up">
+          <h1 className="text-center mb-50">Frequently Asked Questions</h1>
+          <div className="accordions">
+            {faqData.map((faq, index) => (
+              <Accordion
+                key={index}
+                title={faq.question}
+                content={faq.answer}
+                isOpen={index === openAccordionIndex}
+                toggleAccordion={() => toggleAccordion(index)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+      <FooterFour />
     </>
   );
 };

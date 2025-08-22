@@ -22,7 +22,7 @@ let ProductList = [
         title: 'Product Title Here',
         price: '$200.00',
         desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo',
-    },
+    }, 
     {
         imgUrl: 'assets/images/shop/02.jpg',
         imgAlt: 'Product Thumb',

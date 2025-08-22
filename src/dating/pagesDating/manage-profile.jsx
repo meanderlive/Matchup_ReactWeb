@@ -2,21 +2,21 @@ import { Component, Fragment, useCallback, useEffect, useState } from "react";
 import HeaderFour from "../../component/layout/HeaderFour";
 import FooterFour from "../component/layout/footerFour";
 import ManageProfileBasicInput from "../component/manage-profile/basic-input";
- 
+
 import { Link } from "react-router-dom";
 import ManageProfileLookingFor from "../component/manage-profile/looking-for-input";
 import ManageProfileLifeStyle from "../component/manage-profile/lifestyle-input";
 import ManageProfilePhysicalInfo from "../component/manage-profile/physical-info";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfileAsync } from "../store/slice/profileSlice";
-import myprofile from "../pagesDating/my-profile"
+import myprofile from "../pagesDating/my-profile";
 
 const initialUserData = {
   name: "William Smith",
   gender: "Woman",
   lookingFor: "Men",
   maritalStatus: "Single",
-  dob: "07/11/1997",
+  dob: "07/11/1997",    
   age: 36,
   address: "mohali",
 
@@ -75,29 +75,32 @@ const ManageProfile = () => {
     setEditMode(true);
   };
 
+  // Add this function to refresh the profile after update
+  const refreshProfile = () => {
+    dispatch(getUserProfileAsync(userId));
+  };
+
   return (
     <Fragment>
       <HeaderFour />
-      
+
       <div className="group group--single padding-top">
         <div className="group__bottom">
-        <div className="col-10" style={{
-                            marginLeft:"11%"
-
-                          }}>
-              <Link to="/dating/profile"><button
-                          className="default-btn reverse "
-                          
-                          
-                        >
-                          <span>Back</span>
-                        </button>
-                        </Link>
-                        </div>
+          <div
+            className="col-10"
+            style={{
+              marginLeft: "11%",
+            }}
+          >
+            <Link to="/dating/profile">
+              <button className="default-btn reverse ">
+                <span>Back</span>
+              </button>
+            </Link>
+          </div>
           <div className="container">
             <div className="row g-4">
               <div className="col-xl-6 order-xl-1">
-               
                 <div className="group__bottom--left mb-4 group__bottom--left-manage-profile">
                   <div
                     className={`info" ${
@@ -268,7 +271,7 @@ const ManageProfile = () => {
                   </div>
                 </div>
               </div>
-             
+
               <div className="col-xl-6 order-xl-1">
                 <div className="group__bottom--right">
                   {activeTab === "basicInfo" && (
@@ -277,7 +280,7 @@ const ManageProfile = () => {
                       updateUserData={updateUserData}
                       editMode={editMode}
                       getHandle={getHandle}
-                      onUpdateProfile={updateProfileData}
+                      onUpdateProfile={refreshProfile}
                     />
                   )}
                 </div>
@@ -288,7 +291,7 @@ const ManageProfile = () => {
                       updateUserData={updateUserData}
                       editMode={editMode}
                       getHandle={getHandle}
-                      onUpdateProfile={updateProfileData}
+                      onUpdateProfile={refreshProfile}
                     />
                   )}
                 </div>

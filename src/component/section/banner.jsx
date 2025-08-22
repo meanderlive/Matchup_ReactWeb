@@ -24,8 +24,6 @@
 //   const isAuthenction = useSelector((state)=>state.userCreate.isAuth)
 //   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
 
- 
-
 //   const usaCities = [
 //     "New York",
 //     "Los Angeles",
@@ -104,7 +102,7 @@
 //     const ageOptions1 = [];
 //     for (let age = startAge1; age <= endAge1; age++) {
 //       ageOptions1.push(
-//         <option key={age} value={age}>                                                                                                                                                  
+//         <option key={age} value={age}>
 //           {age}
 //         </option>
 //       );
@@ -115,8 +113,7 @@
 //   const handleFilterPartner = async (e) => {
 //     e.preventDefault(); // Fix the typo here
 //     if(!isAuthenction){
-     
-     
+
 //       return
 //     }
 //     try {
@@ -260,7 +257,7 @@
 //                     <div className="row">
 //                       <div className="col-12">
 //                           <Form.Range
-//                             className="custom-range" 
+//                             className="custom-range"
 //                             value={selectedDistance}
 //                             onChange={handleDistanceChange}
 //                             min={1}
@@ -291,7 +288,7 @@
 //                       </div>
 //                     </div>
 //                   </div>
-                  
+
 //                   <Link to= {isAuthenction ? "/dating/members" : "/login" } className="dating-banner-btn" >
 //                  <button className="default-btn reverse d-block"
 //                     // onClick={handleFilterPartner}
@@ -299,7 +296,7 @@
 //                    <span>{btnText}</span>
 //                    </button>
 //                  </Link>
-                 
+
 //                 </form>
 //               </div>
 //             </div>
@@ -320,9 +317,6 @@
 // };
 
 // export default BannerOne;
-
-
-
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -350,24 +344,19 @@ const BannerOne = () => {
   const navigate = useNavigate();
   const isAuthenction = useSelector((state) => state.userCreate.isAuth);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
-  const dispatch =useDispatch()
-const userData =JSON.parse(localStorage.getItem("userData"))
-const id =userData?.data?.mode;
+  const dispatch = useDispatch();
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const id = userData?.data?.mode;
 
-  const usaCities = [
-    "New York",
-    "Los Angeles",
-    "Chicago",
-    "Houston",
-  ];
+  const usaCities = ["New York", "Los Angeles", "Chicago", "Houston"];
 
   const [formData, setFormData] = useState({
-    gender: "male",          // I am a
+    gender: "male", // I am a
     partnerGender: "female", // Looking for
     minAge: "20",
     maxAge: "25",
     distance: 10,
-    country: "India"
+    country: "India",
   });
 
   const startAge = 18;
@@ -399,7 +388,7 @@ const id =userData?.data?.mode;
 
   // const handleFormSubmit = (e) => {
   //   e.preventDefault();
-    
+
   //   // Log all form data to console
   //   console.log("Form Data:", {
   //     gender: formData.gender,
@@ -418,24 +407,25 @@ const id =userData?.data?.mode;
   //   navigate(isAuthenction ? "/dating/members" : "/login");
   // };
 
-
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-     if (!isAuthenction) {
-    toast.error("Please login to find matches");
-    navigate("/login");
-    return;
-  }
+    const hasToken = Boolean(localStorage.getItem("token"));
+    if (!(isAuthenction || hasToken)) {
+      toast.error("Please login to find matches");
+      navigate("/login");
+      return;
+    }
     try {
-     const res = await dispatch(fetchUsersByGender({
-        gender: formData.partnerGender,
-        userId: id
-      })).unwrap();
-      if (res.isSuccess === true && userData ) {
-         navigate("/dating/members");
-      }else{
-        navigate( "/login")
+      const res = await dispatch(
+        fetchUsersByGender({
+          gender: formData.partnerGender,
+          userId: id,
+        })
+      ).unwrap();
+      if (res.isSuccess === true && userData) {
+        navigate("/dating/members");
+      } else {
+        navigate("/login");
       }
     } catch (error) {
       toast.error("Failed to fetch users: " + error.message);
@@ -444,16 +434,16 @@ const id =userData?.data?.mode;
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    
+
     if (type === "radio") {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
-        [name]: value
+        [name]: value,
       }));
     } else {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
-        [name]: value
+        [name]: value,
       }));
     }
   };
@@ -464,7 +454,10 @@ const id =userData?.data?.mode;
       style={{ backgroundImage: "url(/assets/images/banner/bg.jpg)" }}
     >
       {isLoginModalOpen && (
-        <LoginModal showModal={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
+        <LoginModal
+          showModal={isLoginModalOpen}
+          onClose={() => setLoginModalOpen(false)}
+        />
       )}
       <div className="container">
         <div className="row justify-content-center">
@@ -623,10 +616,7 @@ const id =userData?.data?.mode;
                     </div>
                   </div>
 
-                  <button
-                    type="submit"
-                    className="default-btn reverse d-block"
-                  >
+                  <button type="submit" className="default-btn reverse d-block">
                     <span>{btnText}</span>
                   </button>
                 </form>

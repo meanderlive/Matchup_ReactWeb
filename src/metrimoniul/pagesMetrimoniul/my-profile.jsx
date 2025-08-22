@@ -85,8 +85,7 @@ const MyProfile = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(true);
 
-
-  const userID = USER_ID_LOGGEDIN
+  const userID = USER_ID_LOGGEDIN;
 
   const handleImageClickOpenModal = (image) => {
     setSelectedImage(image);
@@ -97,29 +96,22 @@ const MyProfile = () => {
 
   const dispatch = useDispatch();
 
-
   let User;
   if (user?.data) {
     User = user.data;
   } else {
     User = profileData?.[0];
   }
-  
-
-
-
-
-
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file);
-      dispatch(uploadProfilePictureAsync({ imageData: file, userId: userID })).then(
-        () => {
-          forceUpdate(!force);
-        }
-      );
+      dispatch(
+        uploadProfilePictureAsync({ imageData: file, userId: userID })
+      ).then(() => {
+        forceUpdate(!force);
+      });
     }
   };
 
@@ -137,7 +129,6 @@ const MyProfile = () => {
 
     return () => clearTimeout(timeoutId);
   }, []);
-
 
   return (
     <Fragment>
@@ -322,7 +313,6 @@ const MyProfile = () => {
                                     <p className="info-name">Date of Birth</p>
                                     <p className="info-details">
                                       {moment(User?.dob).format("DD/MM/YYYY")}
-
                                     </p>
                                   </li>
                                   <li>
@@ -553,7 +543,9 @@ const MyProfile = () => {
                                 <ul className="info-list">
                                   <li>
                                     <p className="info-name">Family Status</p>
-                                    <p className="info-details">{User?.familyStatus}</p>
+                                    <p className="info-details">
+                                      {User?.familyStatus}
+                                    </p>
                                   </li>
                                   <li>
                                     <p className="info-name">Father’s Name</p>
@@ -563,7 +555,9 @@ const MyProfile = () => {
                                   </li>
                                   <li>
                                     <p className="info-name">Father’s Status</p>
-                                    <p className="info-details">{User?.FathersStatus}</p>
+                                    <p className="info-details">
+                                      {User?.FathersStatus}
+                                    </p>
                                   </li>
                                   <li>
                                     <p className="info-name">Mother’s Name</p>
@@ -843,10 +837,7 @@ const MyProfile = () => {
                                             <div className="media-thumb video-thumb pointer">
                                               <img
                                                 src={item.imgUrl}
-                                                alt={item.
-
-
-                                                  Alt}
+                                                alt={item.Alt}
                                               />
                                             </div>
                                           </div>
@@ -900,7 +891,8 @@ const MyProfile = () => {
                               onChange={handleFileChange}
                               id="imageInput"
                             />
-                            <label className="matri-proffile"
+                            <label
+                              className="matri-proffile"
                               htmlFor="imageInput"
                               style={{ cursor: "pointer" }}
                             >
@@ -908,10 +900,12 @@ const MyProfile = () => {
                                 src={
                                   User?.mainAvatar
                                     ? `https://datingapi.meander.software/assets/images/${User?.mainAvatar}`
+                                    : User?.avatars?.[0]
+                                    ? `https://datingapi.meander.software/assets/images/${User?.avatars?.[0]}`
                                     : userMale
                                 }
                                 style={{
-                                  objectFit: "cover"
+                                  objectFit: "cover",
                                 }}
                                 alt="matrimonial thumb"
                               />
@@ -941,23 +935,21 @@ const MyProfile = () => {
                                   <div className="container">
                                     <div className="row">
                                       {User &&
-                                        User?.interest.map(
-                                          (item, i) => (
-                                            <div
-                                              key={i}
-                                              style={{
-                                                margin: "10px 10px 10px 10px",
-                                                background: "#f24570",
-                                                color: "#fff",
-                                                padding: "5px 12px",
-                                                borderRadius: "25px",
-                                              }}
-                                              className={`interest-item col text-center  flex-nowrap `}
-                                            >
-                                              {item?.name}
-                                            </div>
-                                          )
-                                        )}
+                                        User?.interest.map((item, i) => (
+                                          <div
+                                            key={i}
+                                            style={{
+                                              margin: "10px 10px 10px 10px",
+                                              background: "#f24570",
+                                              color: "#fff",
+                                              padding: "5px 12px",
+                                              borderRadius: "25px",
+                                            }}
+                                            className={`interest-item col text-center  flex-nowrap `}
+                                          >
+                                            {item?.name}
+                                          </div>
+                                        ))}
                                     </div>
                                   </div>
                                 ) : (

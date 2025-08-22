@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import { Link, useNavigate, useParams,useLocation } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import PageHeader from "../component/layout/pageheader";
 import SelectProduct from "../component/select/selectproduct";
 import ActiveGroup from "../component/sidebar/group";
@@ -15,6 +15,7 @@ import { getByIdviewUsersAsync } from "../../dating/store/slice/AuthSlice";
 import Lodder from "../component/layout/Lodder";
 import { filterPartnerByGenderAsync } from "../../dating/store/slice/find-partner-Slice";
 import { UserData } from "../../assets/DummyData/userData";
+
 
 const activety = "Active 3 Days Ago";
 
@@ -174,9 +175,6 @@ const UserProfile = () => {
   const USER_GET_BY_ID = useSelector((state) => state?.userCreate?.Viewuser);
   const USER_PROFILE = USER_GET_BY_ID && USER_GET_BY_ID[0];
 
-
-
-
   const calculatedAge = (dob) => {
     const today = new Date();
     const birthDate = new Date(dob);
@@ -192,12 +190,11 @@ const UserProfile = () => {
   };
 
   useEffect(() => {
-    if(id){
+    if (id) {
       dispatch(getByIdviewUsersAsync(id));
-      // dispatch(filterPartnerByGenderAsync()) 
-
+      // dispatch(filterPartnerByGenderAsync())
     }
-   
+
     try {
       setTimeout(() => {
         setLoading(false);
@@ -331,7 +328,7 @@ const UserProfile = () => {
 
                             <div className="info-card mb-4">
                               <div className="info-card-title">
-                                <h6>Basic Detailssdfvd</h6>
+                                <h6>Basic Details </h6>
                               </div>
                               <div className="info-card-content">
                                 <div className="row text-center"></div>
@@ -339,7 +336,7 @@ const UserProfile = () => {
                                   <li>
                                     <p className="info-name"> Created by</p>
                                     <p className="info-details">
-                                    {USER_PROFILE?.name || ""}
+                                      {USER_PROFILE?.name || ""}
                                     </p>
                                   </li>
                                   <li>
@@ -459,7 +456,7 @@ const UserProfile = () => {
                                   <li>
                                     <p className="info-name">Company Name</p>
                                     <p className="info-details">
-                                      {USER_PROFILE?.companyName || ""}
+                                      {USER_PROFILE?.CompanyName || ""}
                                     </p>
                                   </li>
                                   <li>
@@ -473,7 +470,7 @@ const UserProfile = () => {
                                       Highest Qualification
                                     </p>
                                     <p className="info-details">
-                                      {USER_PROFILE?.highEdu || ""}
+                                      {USER_PROFILE?.HighestQualification || ""}
                                     </p>
                                   </li>
                                   <li>
@@ -485,7 +482,7 @@ const UserProfile = () => {
                                   <li>
                                     <p className="info-name">Collage Name</p>
                                     <p className="info-details">
-                                      {USER_PROFILE?.clgName || ""}
+                                      {USER_PROFILE?.CollageName || ""}
                                     </p>
                                   </li>
                                 </ul>
@@ -510,20 +507,20 @@ const UserProfile = () => {
                                   <li>
                                     <p className="info-name">Family Status</p>
                                     <p className="info-details">
-                                      {USER_PROFILE?.familyStatus || ""}
+                                      {USER_PROFILE?.FamilyStatus || ""}
                                     </p>
                                   </li>
 
                                   <li>
                                     <p className="info-name">Father’s Status</p>
                                     <p className="info-details">
-                                      {USER_PROFILE?.fatherStatus || ""}
+                                      {USER_PROFILE?.FathersStatus || ""}
                                     </p>
                                   </li>
                                   <li>
                                     <p className="info-name">Mother’s Status</p>
                                     <p className="info-details">
-                                      {USER_PROFILE?.motherStatus || ""}
+                                      {USER_PROFILE?.MothersStatus || ""}
                                     </p>
                                   </li>
                                   <li>
@@ -531,7 +528,7 @@ const UserProfile = () => {
                                       Number of Brother
                                     </p>
                                     <p className="info-details">
-                                      {USER_PROFILE?.numberofBrother || ""}
+                                      {USER_PROFILE?.NumberOfBrother || ""}
                                     </p>
                                   </li>
                                   <li>
@@ -539,8 +536,7 @@ const UserProfile = () => {
                                       No of Married Brother
                                     </p>
                                     <p className="info-details">
-                                      {USER_PROFILE?.witchMaridBrother ||
-                                        ""}
+                                      {USER_PROFILE?.NoOfMarriedBrother || ""}
                                     </p>
                                   </li>
                                   <li>
@@ -548,7 +544,7 @@ const UserProfile = () => {
                                       Number of Sister
                                     </p>
                                     <p className="info-details">
-                                      {USER_PROFILE?.numberofSister || ""}
+                                      {USER_PROFILE?.NumberOfSister || ""}
                                     </p>
                                   </li>
                                   <li>
@@ -556,7 +552,7 @@ const UserProfile = () => {
                                       Number of Sister
                                     </p>
                                     <p className="info-details">
-                                      {USER_PROFILE?.witchMaridSister || ""}
+                                      {USER_PROFILE?.NoOfMarriedSister || ""}
                                     </p>
                                   </li>
                                 </ul>
@@ -651,11 +647,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb video-thumb">
                                             <img
-                                              src="assets/images/allmedia/01.jpg"
+                                              src="/assets/images/allmedia/01.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/01.jpg"
+                                              href="/assets/images/allmedia/01.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -666,11 +662,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb albam-thumb">
                                             <img
-                                              src="assets/images/allmedia/02.jpg"
+                                              src="/assets/images/allmedia/02.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/02.jpg"
+                                              href="/assets/images/allmedia/02.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -681,11 +677,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb">
                                             <img
-                                              src="assets/images/allmedia/03.jpg"
+                                              src="/assets/images/allmedia/03.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/03.jpg"
+                                              href="/assets/images/allmedia/03.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -696,11 +692,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb">
                                             <img
-                                              src="assets/images/allmedia/04.jpg"
+                                              src="/assets/images/allmedia/04.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/04.jpg"
+                                              href="/assets/images/allmedia/04.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -711,11 +707,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb video-thumb">
                                             <img
-                                              src="assets/images/allmedia/05.jpg"
+                                              src="/assets/images/allmedia/05.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/05.jpg"
+                                              href="/assets/images/allmedia/05.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -726,11 +722,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb albam-thumb">
                                             <img
-                                              src="assets/images/allmedia/06.jpg"
+                                              src="/assets/images/allmedia/06.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/06.jpg"
+                                              href="/assets/images/allmedia/06.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -741,11 +737,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb video-thumb">
                                             <img
-                                              src="assets/images/allmedia/07.jpg"
+                                              src="/assets/images/allmedia/07.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/07.jpg"
+                                              href="/assets/images/allmedia/07.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -756,11 +752,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb">
                                             <img
-                                              src="assets/images/allmedia/08.jpg"
+                                              src="/assets/images/allmedia/08.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/08.jpg"
+                                              href="/assets/images/allmedia/08.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -771,11 +767,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb">
                                             <img
-                                              src="assets/images/allmedia/09.jpg"
+                                              src="/assets/images/allmedia/09.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/09.jpg"
+                                              href="/assets/images/allmedia/09.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -786,11 +782,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb albam-thumb">
                                             <img
-                                              src="assets/images/allmedia/10.jpg"
+                                              src="/assets/images/allmedia/10.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/10.jpg"
+                                              href="/assets/images/allmedia/10.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -801,11 +797,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb video-thumb">
                                             <img
-                                              src="assets/images/allmedia/11.jpg"
+                                              src="/assets/images/allmedia/11.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/11.jpg"
+                                              href="/assets/images/allmedia/11.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -816,11 +812,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb albam-thumb">
                                             <img
-                                              src="assets/images/allmedia/12.jpg"
+                                              src="/assets/images/allmedia/12.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/12.jpg"
+                                              href="/assets/images/allmedia/12.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -860,11 +856,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb">
                                             <img
-                                              src="assets/images/allmedia/03.jpg"
+                                              src="/assets/images/allmedia/03.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/03.jpg"
+                                              href="/assets/images/allmedia/03.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -875,11 +871,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb">
                                             <img
-                                              src="assets/images/allmedia/04.jpg"
+                                              src="/assets/images/allmedia/04.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/04.jpg"
+                                              href="/assets/images/allmedia/04.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -890,11 +886,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb">
                                             <img
-                                              src="assets/images/allmedia/08.jpg"
+                                              src="/assets/images/allmedia/08.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/08.jpg"
+                                              href="/assets/images/allmedia/08.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -905,11 +901,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb">
                                             <img
-                                              src="assets/images/allmedia/09.jpg"
+                                              src="/assets/images/allmedia/09.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/09.jpg"
+                                              href="/assets/images/allmedia/09.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -950,11 +946,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb video-thumb">
                                             <img
-                                              src="assets/images/allmedia/01.jpg"
+                                              src="/assets/images/allmedia/01.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/01.jpg"
+                                              href="/assets/images/allmedia/01.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -965,11 +961,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb video-thumb">
                                             <img
-                                              src="assets/images/allmedia/05.jpg"
+                                              src="/assets/images/allmedia/05.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/05.jpg"
+                                              href="/assets/images/allmedia/05.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -980,11 +976,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb video-thumb">
                                             <img
-                                              src="assets/images/allmedia/07.jpg"
+                                              src="/assets/images/allmedia/07.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/07.jpg"
+                                              href="/assets/images/allmedia/07.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -995,11 +991,11 @@ const UserProfile = () => {
                                         <div className="col">
                                           <div className="media-thumb video-thumb">
                                             <img
-                                              src="assets/images/allmedia/11.jpg"
+                                              src="/assets/images/allmedia/11.jpg"
                                               alt="dating thumb"
                                             />
                                             <a
-                                              href="assets/images/allmedia/11.jpg"
+                                              href="/assets/images/allmedia/11.jpg"
                                               target="_blank"
                                               className="icon"
                                             >
@@ -1012,7 +1008,7 @@ const UserProfile = () => {
                                       <div className="text-center mt-5">
                                         <a href="#" className="default-btn">
                                           <i className="fa-solid fa-spinner"></i>{" "}
-                                          Load More
+                                          Load Moree
                                         </a>
                                       </div>
                                     </div>
@@ -1033,14 +1029,14 @@ const UserProfile = () => {
                             <img
                               src={
                                 USER_PROFILE?.avatars
-                                  ? `https://datingapi.meander.software/assets/images/${USER_PROFILE?.avatars[0]}`
+                                  ? `https://datingapi.meander.software/assets/images/${USER_PROFILE?.mainAvatar}`
                                   : userMale
                               }
-                          //       src={
-                          //   val.mainAvatar
-                          //     ? `https://datingapi.meander.software/assets/images/${val.mainAvatar}`
-                          //     : userMale
-                          // }
+                              //       src={
+                              //   val.mainAvatar
+                              //     ? `https://datingapi.meander.software/assets/images/${val.mainAvatar}`
+                              //     : userMale
+                              // }
                               alt="matrimonial thumb"
                             />
                           </div>

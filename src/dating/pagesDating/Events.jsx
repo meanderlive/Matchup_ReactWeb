@@ -20,7 +20,10 @@ import EditEventViewSchedule from "../pagesDating/EditEventView";
 import { useDispatch, useSelector } from "react-redux";
 import MyContext from "../store/context/UseContext";
 import MemberPopsModal from "./memberpop";
-import { deleteEvent, getEvents } from "../../service/common-service/eventSlice";
+import {
+  deleteEvent,
+  getEvents,
+} from "../../service/common-service/eventSlice";
 import toast from "react-hot-toast";
 // import { UserData } from "../../assets/DummyData/userData";
 
@@ -48,8 +51,6 @@ const Events = (e) => {
   const eventArray = useSelector((state) => state.eventArray);
   const [eventToDeleteIndex, setEventToDeleteIndex] = useState(null);
 
-
-
   const selectus = (val) => {
     setSelectedUser(val);
   };
@@ -59,21 +60,16 @@ const Events = (e) => {
 
   const useerData = JSON.parse(localStorage.getItem("userData"));
   const Userid = useerData.data._id;
-const dispatch  = useDispatch()
-
+  const dispatch = useDispatch();
 
   useEffect(() => {
-  const getEvent = async () => {
-   const res = await dispatch(getEvents(Userid));
-    // Check for null values before using the spread operator
-    setStoreData(res.payload);
-  }
-  getEvent()
+    const getEvent = async () => {
+      const res = await dispatch(getEvents(Userid));
+      // Check for null values before using the spread operator
+      setStoreData(res.payload);
+    };
+    getEvent();
   }, []);
-
-
-
-
 
   const clockTime = () => {
     setCalenderSchedule(false);
@@ -114,9 +110,7 @@ const dispatch  = useDispatch()
     }, 500);
   };
 
-  const viewData = (val) => {
-
-  };
+  const viewData = (val) => {};
 
   // const handleDelete = () => {
   //   if (eventToDeleteIndex !== null) {
@@ -137,18 +131,17 @@ const dispatch  = useDispatch()
   const handleDelete = async () => {
     if (eventToDeleteIndex !== null) {
       const eventId = storeData[eventToDeleteIndex]._id;
-     const res = await dispatch(deleteEvent(eventId))
-     if(res.payload){
-      const res = await dispatch(getEvents(Userid));
-      setStoreData(res.payload);
-      toast.success("Event deleted successfully");
-      setDeleteSchedule(false);
-      setEventToDeleteIndex(null);
-     }else{
-      toast.error("Error deleting event");
-     }
+      const res = await dispatch(deleteEvent(eventId));
+      if (res.payload) {
+        const res = await dispatch(getEvents(Userid));
+        setStoreData(res.payload);
+        toast.success("Event deleted successfully");
+        setDeleteSchedule(false);
+        setEventToDeleteIndex(null);
+      } else {
+        toast.error("Error deleting event");
+      }
     }
-    
   };
 
   const handleResize = () => {
@@ -206,19 +199,24 @@ const dispatch  = useDispatch()
               </div>
             </div>
 
-            <div div className="row g-4 justify-content-center row-cols-lg-4 row-cols-sm-2 row-cols-1 event-main-wrap">
+            <div
+              div
+              className="row g-4 justify-content-center row-cols-lg-4 row-cols-sm-2 row-cols-1 event-main-wrap"
+            >
               {storeData && storeData.length > 0 ? (
                 storeData.map((val, i) => (
                   <div className="col" key={i}>
                     <div className="story__item style2 story--theme-color">
                       <div className="story__inner">
                         <div className="story__thumb position-relative">
-                          <Link onClick={() => {
-                            setViewEvents(true)
-                            selectuse(val)
-                          }}>
+                          <Link
+                            onClick={() => {
+                              setViewEvents(true);
+                              selectuse(val);
+                            }}
+                          >
                             <img
-                              src={`https://datingapi.meander.software/assets/images/${val?.receiverUserId?.avatars[0] }`}
+                              src={`https://datingapi.meander.software/assets/images/${val?.receiverUserId?.avatars[0]}`}
                               alt={`${val?.selectUser?.avatar}`}
                             />
                           </Link>
@@ -227,10 +225,12 @@ const dispatch  = useDispatch()
                           </span>
                         </div>
                         <div className="story__content px-0 pb-0">
-                          <Link onClick={() => {
-                            setViewEvents(true)
-                            selectuse(val)
-                          }}>
+                          <Link
+                            onClick={() => {
+                              setViewEvents(true);
+                              selectuse(val);
+                            }}
+                          >
                             <h4>{val?.receiverUserId?.name}</h4>
                           </Link>
                           <p>
@@ -248,18 +248,22 @@ const dispatch  = useDispatch()
                         </div>
 
                         <div className="edit-event">
-                          <button onClick={() => {
-                            setViewEvents(true)
-                            selectuse(val)
-                          }}>
+                          <button
+                            onClick={() => {
+                              setViewEvents(true);
+                              selectuse(val);
+                            }}
+                          >
                             <div className="view event-edit-btn">
                               <i className="fas fa-eye"></i>
                             </div>
                           </button>
-                          <button onClick={() => {
-                            setEditEvents(true)
-                            selectuse(val)
-                          }}>
+                          <button
+                            onClick={() => {
+                              setEditEvents(true);
+                              selectuse(val);
+                            }}
+                          >
                             <div className="edit event-edit-btn">
                               <i className="far fa-edit"></i>
                             </div>
@@ -285,7 +289,6 @@ const dispatch  = useDispatch()
                 </div>
               )}
             </div>
-
           </div>
         </div>
         {deleteSchedule !== null && (
@@ -309,7 +312,6 @@ const dispatch  = useDispatch()
           scheduledData={selectedData}
           ViewUser={ViewUser}
           calenderScheduleDAte={calenderScheduleDAte}
-
         />
       </div>
       <FooterFour />

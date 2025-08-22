@@ -352,6 +352,7 @@ const SignUp = (selectedProfile) => {
                       </div>
 
                       <button
+                        type="button"
                         className="default-btn reverse"
                         onClick={handleToggleFormSection}
                       >
@@ -365,6 +366,7 @@ const SignUp = (selectedProfile) => {
                       <h4 className="content-title mt-5">
                         Profile Details
                         <button
+                          type="button"
                           className="default-btn reverse"
                           onClick={() => {
                             handleToggleFormSection();
@@ -463,12 +465,7 @@ const SignUp = (selectedProfile) => {
                           </div>
                         ) : null}
                       </div>
-                      <button
-                        className="default-btn reverse"
-                        onClick={() => {
-                          handleSignUp();
-                        }}
-                      >
+                      <button type="submit" className="default-btn reverse">
                         <span>Create your account</span>
                       </button>
                     </div>
@@ -480,6 +477,7 @@ const SignUp = (selectedProfile) => {
                         <h4 className="content-title mt-5">
                           Profile Details
                           <button
+                            type="button"
                             className="default-btn reverse"
                             onClick={() => {
                               handleToggleFormSection();
@@ -905,12 +903,7 @@ const SignUp = (selectedProfile) => {
                           ) : null}
                         </div>
 
-                        <button
-                          className="default-btn reverse"
-                          onClick={() => {
-                            formik.handleSubmit();
-                          }}
-                        >
+                        <button type="submit" className="default-btn reverse">
                           <span>Create your account</span>
                         </button>
                       </div>

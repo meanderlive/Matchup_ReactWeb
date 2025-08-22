@@ -1,13 +1,11 @@
 import React, { useState, Fragment, useEffect, useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Modal, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import CalenderScheduleModal from "../component/popUps/calenderSchedule";
+import { useSelector } from "react-redux";
+import { Modal } from "react-bootstrap";
+// import { Link } from "react-router-dom";
+// import CalenderScheduleModal from "../component/popUps/calenderSchedule";
 import userMale from "../assets/images/myCollection/user-male.jpg";
 import toast from "react-hot-toast";
 import MyContext from "../store/context/UseContext";
-
-
 
 const EventViewSchedule = ({
   showModal,
@@ -19,22 +17,20 @@ const EventViewSchedule = ({
 }) => {
   const [storeData, setStoreData] = useState([]);
 
-
   const profileData = useSelector((state) => state.profile.userData);
 
-  const {eventArray}=useContext(MyContext)
+  const { eventArray } = useContext(MyContext);
 
-  const User =profileData[0];
+  const User = profileData[0];
 
   const dataEvent = localStorage.getItem("dataEvent");
   const datanotifyEvent = localStorage.getItem("datanotifyEvent");
-  
+
   useEffect(() => {
     const parsedDataEvent = dataEvent ? JSON.parse(dataEvent) : [];
     const parsedDatanotifyEvent = datanotifyEvent
       ? JSON.parse(datanotifyEvent)
       : [];
-
 
     // Assuming setStoreData is a function that updates the state
     setStoreData([...parsedDataEvent, ...parsedDatanotifyEvent]);
@@ -45,7 +41,6 @@ const EventViewSchedule = ({
   //   console.log(JSON.parse(data));
   //   setStoreData(data ? [JSON.parse(data)] : []);
   // }, []);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,7 +79,6 @@ const EventViewSchedule = ({
             fill="none"
             className="sched-modal-view"
           >
-            
             <path
               d="M192.069 338.654C43.1066 317.937 22.2553 364.484 0.00750924 404.24L7.50122e-09 20.0255C-0.000299446 8.96583 8.96523 0 20.0248 0H309.519C320.577 0 329.544 8.96583 329.544 20.0245L329.543 243.055C325.491 286.302 295.076 352.979 192.069 338.654Z"
               fill="#D6B6F9"
@@ -108,7 +102,7 @@ const EventViewSchedule = ({
                 </p>
                 <p className="fs-4 text-muted fw-600 per-dest">
                   {" "}
-                  {User?.occupation || ""}
+                  {User?.occupation || "Business Man"}
                 </p>
                 <p className="fs-4 text-muted fw-600 location ">
                   <span>
@@ -125,15 +119,15 @@ const EventViewSchedule = ({
                       />
                     </svg>
                   </span>
-                  {User?.address || ""}
+                  {User?.address || "Delhi,NCR"}
                 </p>
               </div>
               <div className="col-md-4 col-4 modal-imgg-wrap">
                 <div className="girl ">
                   <img
                     src={
-                      User?.avatars
-                        ? `https://datingapi.meander.software/assets/images/${User?.avatars[0]}`
+                      User?.mainAvatar
+                        ? `https://datingapi.meander.software/assets/images/${User?.mainAvatar}`
                         : userMale
                     }
                     alt="dating thumb"
@@ -157,13 +151,13 @@ const EventViewSchedule = ({
               </svg>
             </div>
             <div className="row rt2">
-            { 
-                <Fragment  >
+              {
+                <Fragment>
                   <div className="col-md-4 col-4 modal-imgg-wrap">
                     <img
                       className="img2 rounded-50"
                       // src={`${ViewUser?.selectUser?.avatar}`}
-                      src={`https://datingapi.meander.software/assets/images/${ViewUser?.receiverUserId?.avatars[0] }`}
+                      src={`https://datingapi.meander.software/assets/images/${ViewUser?.receiverUserId?.avatars[0]}`}
                       alt={ViewUser?.selectUser?.avatar}
                     />
                   </div>
@@ -172,7 +166,7 @@ const EventViewSchedule = ({
                       {ViewUser?.receiverUserId?.name}
                     </p>
                     <p className="fs-4 text-muted fw-600 per-dest">
-                    {ViewUser?.receiverUserId?.occupation}
+                      {ViewUser?.receiverUserId?.occupation}
                     </p>
                     <p className="fs-4 text-muted fw-600 location">
                       <span className="location2">
@@ -197,22 +191,20 @@ const EventViewSchedule = ({
             </div>
           </div>
 
-         
-            <div className="date-time-wrap view-event">
-              <p className="date-modal">
-                <i className="fas fa-calendar-alt"></i>
-                {ViewUser?.scheduledData?.date || ""}
-              </p>
-              <p className="time-modal">
-                <i className="fas fa-clock"></i>
-                {ViewUser?.scheduledData?.time || ""}
-              </p>
-              <p className="loc-modal">
-                <i className="fas fa-map-marker-alt"></i>
-                {ViewUser?.scheduledData?.venue || ""}
-              </p>
-            </div>
-     
+          <div className="date-time-wrap view-event">
+            <p className="date-modal">
+              <i className="fas fa-calendar-alt"></i>
+              {ViewUser?.scheduledData?.date || "17-10-2025"}
+            </p>
+            <p className="time-modal">
+              <i className="fas fa-clock"></i>
+              {ViewUser?.scheduledData?.time || "10:00 AM"}
+            </p>
+            <p className="loc-modal">
+              <i className="fas fa-map-marker-alt"></i>
+              {ViewUser?.scheduledData?.venue || "City garden "}
+            </p>
+          </div>
 
           <div className="main-bottom">
             {/* <Link onClick={hideModal}> 

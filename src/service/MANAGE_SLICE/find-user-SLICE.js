@@ -1,5 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { SearchFindPartnerAPI, getFindPartnerAPI } from "../MANAGE_API/find-user-API";
+import {
+  SearchFindPartnerAPI,
+  getFindPartnerAPI,
+} from "../MANAGE_API/find-user-API";
 
 export const metriGetAllUsersAsync = createAsyncThunk(
   "allUsers/getAllUsers",
@@ -25,10 +28,20 @@ export const metriSearchAllUsersAsync = createAsyncThunk(
   }
 );
 
+const loadCachedUsers = () => {
+  try {
+    const raw = localStorage.getItem("metrimonialUsers");
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (_) {
+    return [];
+  }
+};
+
 const allUsersSlice = createSlice({
   name: "allUsers",
   initialState: {
-    users: [],
+    users: loadCachedUsers(),
     loading: false,
     error: null,
   },
@@ -37,11 +50,17 @@ const allUsersSlice = createSlice({
     builder
       .addCase(metriGetAllUsersAsync.pending, (state) => {
         state.loading = true;
-        state.error = null; 
+        state.error = null;
       })
       .addCase(metriGetAllUsersAsync.fulfilled, (state, action) => {
         state.loading = false;
         state.users = action.payload;
+        try {
+          localStorage.setItem(
+            "metrimonialUsers",
+            JSON.stringify(state.users || [])
+          );
+        } catch (_) {}
       })
       .addCase(metriGetAllUsersAsync.rejected, (state, action) => {
         state.loading = false;
@@ -54,6 +73,12 @@ const allUsersSlice = createSlice({
       .addCase(metriSearchAllUsersAsync.fulfilled, (state, action) => {
         state.loading = false;
         state.users = action.payload;
+        try {
+          localStorage.setItem(
+            "metrimonialUsers",
+            JSON.stringify(state.users || [])
+          );
+        } catch (_) {}
       })
       .addCase(metriSearchAllUsersAsync.rejected, (state, action) => {
         state.loading = false;

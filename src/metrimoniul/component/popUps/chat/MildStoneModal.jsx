@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Scrollbars from 'react-custom-scrollbars-2';
 
@@ -96,7 +96,8 @@ const RelationshipMilestoneTrackerMetri = ({ showModal, hideModal, selectedUser 
                             <div className="activity__item">
                               <div className="activity__inner">
                                 <div className="activity__thumb">
-                                  <Link to="/member-single"><img src={selectedUser ? selectedUser.avatar : null} alt={`${val.imgAlt}`} /></Link>
+                                  <Link to="/member-single">
+                                  <img src={selectedUser ? selectedUser.avatars : null} alt={`${val.imgAlt}`} /></Link>
                                 </div>
                                 <div className="activity__content">
                                   <h5>

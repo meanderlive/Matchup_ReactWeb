@@ -18,10 +18,8 @@ const imgAlt = "Dating Thumb";
 
 const BannerOne = () => {
   const navigate = useNavigate();
-  const isAuthenction = useSelector((state)=>state.userCreate.isAuth)
+  const isAuthenction = useSelector((state) => state.userCreate.isAuth);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
-
- 
 
   const usaCities = [
     "New York",
@@ -101,7 +99,7 @@ const BannerOne = () => {
     const ageOptions1 = [];
     for (let age = startAge1; age <= endAge1; age++) {
       ageOptions1.push(
-        <option key={age} value={age}>                                                                                                                                                  
+        <option key={age} value={age}>
           {age}
         </option>
       );
@@ -111,13 +109,16 @@ const BannerOne = () => {
 
   const handleFilterPartner = async (e) => {
     e.preventDefault(); // Fix the typo here
-    if(!isAuthenction){
-      toast.error("Login pls")
-      setLoginModalOpen(true)
-      return
+    const hasToken = Boolean(localStorage.getItem("token"));
+    if (!(isAuthenction || hasToken)) {
+      toast.error("Please login to find matches");
+      navigate("/login");
+      return;
     }
     try {
-      navigate(`/dating/members?minAge=${selectAge.minAge}&maxAge=${selectAge.maxAge}`);
+      navigate(
+        `/metrimonial/members?minAge=${selectAge.minAge}&maxAge=${selectAge.maxAge}`
+      );
     } catch (error) {
       console.error("Error filtering partners:", error);
     }
@@ -139,7 +140,6 @@ const BannerOne = () => {
       className="banner padding-top padding-bottom bg_img"
       style={{ backgroundImage: "url(/assets/images/banner/bg.jpg)" }}
     >
-      
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-6 col-12">
@@ -228,7 +228,7 @@ const BannerOne = () => {
                       <div className="col-6">
                         <div className="banner__inputlist">
                           <select
-                          name="minAge"
+                            name="minAge"
                             value={selectAge.minAge}
                             onChange={handleChangeData}
                           >
@@ -239,7 +239,7 @@ const BannerOne = () => {
                       <div className="col-6">
                         <div className="banner__inputlist">
                           <select
-                          name="maxAge"
+                            name="maxAge"
                             value={selectAge.maxAge}
                             onChange={handleChangeData}
                           >
@@ -254,14 +254,14 @@ const BannerOne = () => {
                     <label>{`Distance (${selectedDistance} km)`}</label>
                     <div className="row">
                       <div className="col-12">
-                          <Form.Range
-                            className="custom-range" 
-                            value={selectedDistance}
-                            onChange={handleDistanceChange}
-                            min={1}
-                            max={100}
-                          />
-                        </div>
+                        <Form.Range
+                          className="custom-range"
+                          value={selectedDistance}
+                          onChange={handleDistanceChange}
+                          min={1}
+                          max={100}
+                        />
+                      </div>
                     </div>
                   </div>
 

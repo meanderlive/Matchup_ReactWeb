@@ -9,7 +9,7 @@ let MemberConentListNewest = [
     {
         imgUrl: 'assets/images/member/home2/01.jpg',
         imgAlt: 'Dating Thumb',
-        name: 'Smith Jhonson',
+        name: 'Smith Jhonson',  
         activity: 'registered 4 months, 1 week ago',
     },
     {

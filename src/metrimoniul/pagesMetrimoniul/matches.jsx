@@ -237,7 +237,7 @@ const MatchPage = () => {
                             <div className="col">
                               <Link
                                 className="fs-3 ms-3"
-                                to="/metrimonial/chat-page2"
+                                to="/metrimonial/chat"
                               >
                                 <i
                                   class="fa fa-comment"
@@ -344,7 +344,7 @@ const MatchPage = () => {
                             <div className="col">
                               <Link
                                 className="fs-3 ms-3"
-                                to="/metrimonial/chat-page2"
+                                to="/metrimonial/chat"
                               >
                                 <i
                                   class="fa fa-comment"

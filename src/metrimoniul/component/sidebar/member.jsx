@@ -48,13 +48,18 @@ const ActiveMember = () => {
                                     <li key={i}>
                                         <div className="top">
                                             <div className="left member--style2">
-                                                <div className="member__thumb">
+                                                <div className="member__thumb">     
                                                     <img
                                                         src={
                                                             val.avatars
-                                                                ? `https://datingapi.meander.software/assets/images/${val.avatars[0]}`
+                                                                ? `https://datingapi.meander.software/assets/images/${val.mainAvatar}`
                                                                 : null
                                                         }
+                                                        // src={
+                                                        //     USER_PROFILE?.avatars
+                                                        //       ? `https://datingapi.meander.software/assets/images/${USER_PROFILE?.mainAvatar}`
+                                                        //       : userMale
+                                                        //   }
                                                         style={{
                                                             height: "51px",
                                                             objectFit: "cover"
@@ -77,7 +82,6 @@ const ActiveMember = () => {
 
                         </ul>
                     </div>
-                   
                 </div>
             </div>
         </div>

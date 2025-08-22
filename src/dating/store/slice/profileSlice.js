@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
-  getUserById,
   updateUserInterests,
   updateUserProfile,
   uploadMultiPicture,
@@ -14,6 +13,12 @@ export const uploadProfilePictureAsync = createAsyncThunk(
     console.log("userId slice dp", userId);
     try {
       const response = await uploadProfilePicture(imageData, userId);
+      // Ensure the latest profile is fetched so UI reflects the new avatar everywhere
+      try {
+        await thunkAPI.dispatch(getUserProfileAsync(userId));
+      } catch (_) {
+        // no-op: avoid breaking upload flow if refresh fails
+      }
       return response;
     } catch (error) {
       throw error;
@@ -79,6 +84,7 @@ const profileSlice = createSlice({
     uploadError: null,
     loading: false,
     error: null,
+    avatarVersion: 0,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -89,6 +95,8 @@ const profileSlice = createSlice({
       })
       .addCase(uploadProfilePictureAsync.fulfilled, (state) => {
         state.uploading = false;
+        // bump cache-buster so avatar URLs refresh everywhere without reload
+        state.avatarVersion = Date.now();
       })
       .addCase(uploadProfilePictureAsync.rejected, (state, action) => {
         state.uploading = false;

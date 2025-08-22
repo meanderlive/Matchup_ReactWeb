@@ -112,7 +112,7 @@ const EditEventViewSchedule = ({
               </div>
               <div className="col-md-4 col-4 modal-imgg-wrap">
                 <div className="girl ">
-                  <img
+                <img
                     src={
                       User?.mainAvatar
                         ? `https://datingapi.meander.software/assets/images/${User?.mainAvatar}`
@@ -142,10 +142,14 @@ const EditEventViewSchedule = ({
            
                 <Fragment >
                   <div className="col-md-4 col-4 modal-imgg-wrap">
-                    <img
+                  <img
                       className="img2 rounded-50"
-                      src={ViewUser?.selectUser?.avatar}
-                      alt={ViewUser?.selectUser?.avatar}
+                      src={
+                        ViewUser?.selectUser?.mainAvatar
+                          ? `https://datingapi.meander.software/assets/images/${ViewUser?.selectUser?.mainAvatar}`
+                          : userMale
+                      }
+                      alt={ViewUser?.selectUser?.name || "user"}
                     />
                   </div>
                   <div className="col-md-8 mod-person-rt col-8">
@@ -153,7 +157,7 @@ const EditEventViewSchedule = ({
                       {ViewUser?.selectUser?.name}
                     </p>
                     <p className="fs-4 text-muted fw-600 per-dest">
-                      {ViewUser?.selectUser?.profession}
+                      {ViewUser?.selectUser?.occupation}
                     </p>
                     <p className="fs-4 text-muted fw-600 location">
                       <span className="location2">
@@ -170,7 +174,7 @@ const EditEventViewSchedule = ({
                           />
                         </svg>
                       </span>
-                      {ViewUser?.selectUser?.location}
+                      {ViewUser?.selectUser?.address}
                     </p>
                   </div>
                 </Fragment>
@@ -196,7 +200,7 @@ const EditEventViewSchedule = ({
        
 
             <div className="main-bottom">
-           <Link to="/dating/chat-page2"> 
+           <Link to="/metrimonial/chat"> 
            <button className="send-msg-btn">
               <p className="content">Send a Message</p>
             </button></Link>

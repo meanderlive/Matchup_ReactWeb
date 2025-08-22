@@ -45,6 +45,7 @@ let HeaderSocialList = [
 
 const HeaderFour = () => {
   const profileData = useSelector((state) => state.profile?.userData);
+  const avatarVersion = useSelector((state) => state.profile?.avatarVersion);
   const [username, setUsername] = useState(localStorage.getItem("userData"));
   const [userData, setUserData] = useState(localStorage.getItem("userData"));
   const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false);
@@ -257,8 +258,10 @@ const HeaderFour = () => {
                   <React.Fragment>
                     <img
                       src={
-                        User?.avatars[0]
-                          ? `https://datingapi.meander.software/assets/images/${User?.avatars[0]}`
+                        User?.mainAvatar
+                          ? `https://datingapi.meander.software/assets/images/${User?.mainAvatar}?v=${avatarVersion}`
+                          : User?.avatars?.[0]
+                          ? `https://datingapi.meander.software/assets/images/${User?.avatars?.[0]}?v=${avatarVersion}`
                           : userMale
                       }
                       // ||
